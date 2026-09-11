@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070a12">
+  <title>Shadow's Archive</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="security-pass" id="security-pass" aria-labelledby="security-pass-title">
+    <div class="security-orbit" aria-hidden="true"></div>
+    <div class="security-panel">
+      <p class="eyebrow">SHADOW'S ARCHIVE // FRONT DOOR</p>
+      <h1 id="security-pass-title">SECURITY<br><em>PASS</em></h1>
+      <p class="security-copy">AUTHORIZED ACCESS REQUIRED</p>
+      <form class="security-form" id="security-form">
+        <label for="security-input">SECURITY PASS</label>
+        <input id="security-input" name="security-pass" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="security-status" required>
+        <button class="archive-button" type="submit">AUTHENTICATE <span>↗</span></button>
+      </form>
+      <p class="security-status" id="security-status" aria-live="polite">AWAITING AUTHORITY</p>
+    </div>
+  </section>
+  <dialog class="early-access-dialog" id="early-access-dialog" aria-labelledby="early-access-title">
+    <p class="eyebrow">EARLY ACCESS REQUEST</p>
+    <h2 id="early-access-title">Do you want to access the site ahead of it's reveal date?</h2>
+    <div class="early-access-actions">
+      <button class="archive-button" id="early-access-yes" type="button">YES <span>↗</span></button>
+      <button class="text-button" id="early-access-no" type="button">NO <span>×</span></button>
+    </div>
+  </dialog>
+  <div class="site-lock" id="site-lock" aria-live="polite">
+    <div class="lock-orbit" aria-hidden="true"></div>
+    <p class="eyebrow">SHADOW'S ARCHIVE</p>
+    <h1>ACCESS<br><em>RESTRICTED</em></h1>
+    <p class="lock-copy" id="lock-copy">A personal record is waiting beyond the signal.</p>
+    <div class="lock-chapters" id="lock-chapters"></div>
+    <div class="countdown-wrap"><span>UNLOCKS</span><strong id="countdown">--:--:--:--</strong><small>18 SEPTEMBER 2026 // 00:00 UTC+7</small></div>
+  </div>
+
+  <main class="app" id="app" hidden>
+    <div class="atmosphere atmosphere-a"></div><div class="atmosphere atmosphere-b"></div><div class="signal-ribbon" aria-hidden="true"></div><div class="particle-field" id="particle-field"></div>
+    <header class="archive-header">
+      <button class="wordmark" data-chapter="0" aria-label="Return to the signal">S / ARCHIVE</button>
+      <div class="chapter-progress" id="chapter-progress" aria-label="Chapter progress"></div>
+      <time class="archive-time" id="archive-time" datetime="2026-09-18T00:42:00+07:00">18.09.2026&nbsp;&nbsp;00:42 UTC+7</time>
+      <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false">SOUND / OFF</button>
+    </header>
+    <aside class="developer-panel" id="developer-panel" hidden aria-labelledby="developer-title">
+      <div class="developer-panel-heading"><p class="eyebrow">LOCAL TOOLING</p><h2 id="developer-title">KURU // DEVELOPER MODE</h2></div>
+      <div class="developer-actions">
+        <button type="button" data-dev-chapter="0">PREVIEW CHAPTER I</button><button type="button" data-dev-chapter="1">PREVIEW CHAPTER II</button><button type="button" data-dev-chapter="2">PREVIEW CHAPTER III</button><button type="button" data-dev-chapter="3">PREVIEW CHAPTER IV</button><button type="button" data-dev-chapter="4">PREVIEW CHAPTER V</button><button type="button" data-dev-chapter="5">PREVIEW CHAPTER VI</button>
+        <button type="button" id="dev-bypass">BYPASS PROGRESSION: ON</button><button type="button" id="dev-reset">RESET PROGRESSION</button><button type="button" id="dev-lock">PREVIEW LOCK SCREEN</button>
+      </div>
+    </aside>
+
+    <section class="chapter active" id="chapter-0" data-chapter="0">
+      <div class="signal-layout">
+        <div class="signal-copy">
+          <p class="eyebrow signal-status" id="signal-status"><span class="signal-dot">●</span> SIGNAL DETECTED</p>
+          <p class="signal-line" id="signal-line">ARCHIVE CONNECTION: STABLE</p>
+          <div class="signal-progress"><span id="signal-progress-bar"></span></div>
+          <p class="signal-label" id="signal-label">ESTABLISHING CONNECTION...</p>
+          <div class="signal-reveal" id="signal-reveal"><p class="eyebrow signal-confirmation" id="signal-confirmation" aria-hidden="true">IDENTITY CONFIRMED</p><h1 id="signal-name" aria-hidden="true">SHADOW</h1><p class="eyebrow occasion" id="signal-occasion" aria-hidden="true">SPECIAL OCCASION DETECTED</p><p class="signal-birthday" id="signal-birthday" aria-hidden="true">BIRTHDAY</p><p class="signal-warmth" id="signal-warmth" aria-hidden="true">HAPPY BIRTHDAY, SHADOW</p><p class="signal-subtitle" id="signal-subtitle" aria-hidden="true">A SPECIAL RECORD HAS BEEN PREPARED FOR YOU.</p><button class="archive-button" id="enter-archive" type="button" aria-hidden="true" tabindex="-1">ENTER ARCHIVE <span>↗</span></button></div>
+        </div>
+        <div class="signal-coordinate">RECORD // 2026.09.18<br>17.09.26 / 23:59:59Z<br><span class="coordinate-wave">〰〰〰</span></div>
+      </div>
+    </section>
+
+    <section class="chapter reveal-chapter" id="chapter-1" data-chapter="1">
+      <div class="chapter-intro"><p class="eyebrow">SPECIAL RECORD // 02</p><span class="chapter-number">II</span></div>
+      <div class="reveal-grid"><div class="reveal-message"><p class="eyebrow reveal-kicker">HAPPY BIRTHDAY</p><h2>SHADOW</h2><p class="lede reveal-lede">Another year added to the archive.</p><div class="note"><p class="eyebrow">ARCHIVE NOTE</p><dl class="note-metadata"><div><dt>FROM</dt><dd>KURUMII</dd></div><div><dt>SUBJECT</dt><dd>HAPPY BIRTHDAY, SHADOW</dd></div><div><dt>RECORD</dt><dd>PERSONAL MESSAGE</dd></div><div><dt>DATE</dt><dd>2026.09.18</dd></div><div><dt>STATUS</dt><dd>BIRTHDAY RECORD</dd></div></dl><div class="approved-message"><p>Hey there, Shadow,</p><p>Happy birthday, dude! 🎉</p><p>There's a lot of things I wanna say here, but hey, let's keep it short. I see you as a great friend, and of course, there's the whole Discord family-tree stuff too. 😂</p><p>Thanks a ton for helping me out with various things and for always being a good bro to Ruby.</p><p class="sea-note">Now let's just admire the beauty of the vast sea~ 🌊<br>(Just don't become one with the sea though 💀)</p><p>Wishing you an amazing life ahead, with plenty of good moments, good people, and good memories.</p><p>Happy Birthday once again, bro! 🎂</p></div><div class="reveal-completion"><p class="eyebrow">RECORD // 02 &nbsp; STATUS: COMPLETE</p><p>BIRTHDAY MESSAGE ARCHIVED.</p><p>A SPECIAL COMPANION RECORD<br>IS AVAILABLE.</p><button class="text-button" data-next="2">CONTINUE <span>→</span></button></div></div></div><div class="denia-placeholder"><img src="assets/images/denia/portrait-placeholder.jpg" alt="Denia artwork"><p>DENIA / ARTWORK</p></div></div>
+    </section>
+
+    <section class="chapter celebration-chapter" id="chapter-2" data-chapter="2">
+      <div class="chapter-intro"><p class="eyebrow">BIRTHDAY EVENT</p><span class="chapter-number">III</span></div>
+      <div id="companion-stage"><div class="companion-prompt"><p class="eyebrow">TODAY'S BIRTHDAY SUBJECT</p><h2>SHADOW</h2><p class="lede">A companion may join you for this special occasion.</p><div class="companion-record"><p class="eyebrow">COMPANION AVAILABILITY</p><p class="availability-count">ONE RECORD FOUND</p><h3>DENIA</h3><p class="availability-status">STATUS: AVAILABLE</p><button class="archive-button" id="select-companion" type="button">SELECT COMPANION <span>↗</span></button></div></div></div>
+    </section>
+
+    <section class="chapter archive-chapter" id="chapter-3" data-chapter="3">
+      <div class="chapter-intro"><p class="eyebrow">RECORD // 03 &nbsp; STATUS: COMPLETE</p><span class="chapter-number">IV</span></div>
+      <div class="archive-heading"><p class="eyebrow">ACCESSING PERSONAL ARCHIVE...</p><h2>SHADOW'S<br><em>ARCHIVE</em></h2><p class="lede">A collection of records, memories, and questionable incidents.</p></div>
+      <div class="record-stream" id="record-stream"></div>
+      <button class="text-button" id="index-records" type="button">INDEX ALL RECORDS <span>→</span></button>
+    </section>
+
+    <section class="chapter ocean-chapter" id="chapter-4" data-chapter="4">
+      <div class="chapter-intro"><p class="eyebrow">ARCHIVE RECORD // 05 &nbsp; SUBJECT: SHADOW</p><span class="chapter-number">V</span></div>
+      <div class="ocean-incident" id="ocean-incident"><div class="ocean-copy"><p class="eyebrow">CATEGORY: UNEXPLAINED // STATUS: ACTIVE</p><h2>OCEAN EXPOSURE<br><em>DETECTED</em></h2><p class="lede">The archive has found an association it cannot ignore.</p></div><div class="evidence-grid"><article class="evidence ocean-stage evidence-primary"><p class="eyebrow">EVIDENCE 01 / KNOWN ASSOCIATION</p><p>SUBJECT <b>→ SHADOW</b><br>ASSOCIATION <b>→ OCEAN</b></p><div class="meter-label">CONFIDENCE: <span>87%</span></div><div class="meter"><i style="width:87%"></i></div><p class="quote">"The subject has demonstrated an unusual level of attachment to the concept of the ocean."</p></article><article class="evidence ocean-stage evidence-secondary"><p class="eyebrow">EVIDENCE 02</p><p>SEARCHING FOR ADDITIONAL OCEAN ACTIVITY...</p><p class="result">RESULTS: TOO MANY<br><strong>THIS IS GETTING WORRYING.</strong></p></article></div><div class="ocean-analysis ocean-stage"><p>SUBJECT: SHADOW</p><p>OCEAN ASSOCIATION: CONFIRMED</p><p>OCEAN EXPOSURE: SIGNIFICANT</p><div class="probability"><p>PROBABILITY OF BECOMING ONE WITH THE OCEAN: <b>91%</b></p><div class="meter"><i style="width:91%"></i></div></div><p class="warning-label">WARNING</p><h3 id="ocean-warning">PLEASE DO NOT BECOME ONE WITH THE OCEAN.</h3><button class="archive-button" id="prevent-merger" type="button">PREVENT OCEAN MERGER</button></div><div class="ocean-recovery" id="ocean-recovery" hidden><p class="eyebrow">INCIDENT RECORD COMPLETE.</p><p>SUBJECT REMAINS ON LAND.<br><em>FOR NOW.</em></p><p class="status-line">STATUS: SHADOW — SAFE / OCEAN — SUSPICIOUS</p><div class="ocean-completion"><p class="eyebrow">ADDITIONAL RECORD DETECTED.</p><p>TYPE: MESSAGES<br>SOURCE: MULTIPLE CONTRIBUTORS</p><button class="text-button" id="finish-ocean" type="button">OPEN ADDITIONAL RECORD <span>→</span></button></div></div></div>
+    </section>
+    <div class="sea-flash" id="sea-flash" hidden aria-live="assertive"><div class="sea-transmission"><div class="sea-image-mask"><img class="sea-flash-image" src="assets/images/ocean/sea-flash.png" alt="Ocean contact established"></div><div class="sea-reflection" aria-hidden="true"><img src="assets/images/ocean/sea-flash.png" alt=""></div><div class="sea-ripple" aria-hidden="true"></div></div><div class="sea-vignette" aria-hidden="true"></div><p>⚠ OCEAN CONTACT ESTABLISHED</p></div>
+
+    <section class="chapter finale-chapter" id="chapter-5" data-chapter="5">
+      <div class="calm-water" aria-hidden="true"></div><div class="chapter-intro"><p class="eyebrow">RECORD // 06 &nbsp; ARCHIVE STATUS: FINAL RECORD</p><span class="chapter-number">VI</span></div>
+      <div class="finale-heading"><p class="eyebrow">COLLECTIVE CONTRIBUTION ARCHIVE</p><h2>ONE WITH<br><em>THE OCEAN</em></h2><p class="lede">Messages from the people around Shadow.</p><span class="contribution-count" id="contribution-count"></span></div>
+      <div class="finale-section-label"><p class="eyebrow">THE THINGS PEOPLE MADE</p><p>Personal records gathered for Shadow's birthday.</p></div>
+      <div class="contribution-stream" id="contribution-stream"></div>
+      <section class="well-wishers" aria-labelledby="well-wishers-title"><div class="finale-section-label"><p class="eyebrow">FINAL ASSOCIATION</p><h3 id="well-wishers-title">THE WELL-WISHERS</h3><p>Those who left a message for Shadow.</p></div><div class="well-wisher-board" id="well-wisher-board"></div></section>
+      <div class="finale-close"><p class="eyebrow">ALL CONTRIBUTIONS INDEXED.</p><h3 id="finale-stats"></h3><p class="final-message">Shadow's archive complete.<br><strong>Happy birthday, Shadow.</strong></p></div>
+      <div class="final-ocean-epilogue"><div class="epilogue-light" aria-hidden="true"></div><p class="eyebrow">THE OCEAN, AT LAST</p><p class="callback">THE OCEAN CLAIMS ANOTHER</p></div>
+    </section>
+  </main>
+  <div class="viewer" id="viewer" hidden><button class="viewer-close" id="viewer-close" type="button" aria-label="Close image viewer">×</button><img id="viewer-image" alt="Expanded contribution artwork"></div>
+  <script src="script.js"></script>
+</body>
+</html>
