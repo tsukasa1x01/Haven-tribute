@@ -113,13 +113,17 @@ Hope you have a wonderful birthday and an even better year ahead. Enjoy your day
   }, {
     type: 'message',
     from: 'Kuro',
-    message: `⋆˚꩜｡ HAPPY BIRTHDAY ｡꩜˚⋆
-╰・Void Catto Nyaaa~ !! :detectivo:
+    message: `Hello bro, first of all, happy birthday to you!
 
-Another year closer to becoming an ancient Gambler, may your pulls be extremely lucky, may you never get jump scared by a 4 star, and may you never say “one last pull” 47 times in a row :encorewheeezee:
+  I am very glad that I met you and Sissy. Before this, I was all alone trying to find someone to talk and spend time with, but after meeting you and sis, I never felt alone anymore, got someone to yapyap with !❤️
 
-⋆｡° ✩ NYAA BIRTHDAY !! :Hug:
-(Hope you wallet survives~)`,
+  I am truly grateful to have you and Sissy, I can’t even imagine what would have happened to me if I had never met you both. Anyways, I’m getting too carried away...
+
+  On your special day, I just want to wish you lots and lots of happiness, and I really mean it! You deserve all of it and so much more!
+
+  Not just happiness, though. May you get infinite gacha luck, and may all your pulls be extremely lucky hehe, May you never say "one last pull" 47 times in a row :3
+
+  Happy birthday once again, bro! I hope you always stay happy and keep smiling!`,
     date: '2026.09.18'
   }, {
     type: 'message',

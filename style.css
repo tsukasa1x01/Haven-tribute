@@ -254,7 +254,23 @@
       }
       .reveal-completion .text-button {
         margin-top: 1rem;
-        color: var(--text)
+        display: inline-flex;
+        align-items: center;
+        gap: .8rem;
+        padding: .75rem 1rem;
+        border: 1px solid rgba(112, 229, 237, .55);
+        color: var(--text);
+        background: rgba(12, 24, 42, .7);
+        box-shadow: 0 0 18px rgba(112, 229, 237, .08);
+        transition: border-color .25s ease, background .25s ease,
+          box-shadow .25s ease, transform .25s ease
+      }
+      .reveal-completion .text-button:hover,
+      .reveal-completion .text-button:focus-visible {
+        border-color: var(--cyan);
+        background: rgba(22, 42, 67, .9);
+        box-shadow: 0 0 24px rgba(112, 229, 237, .2);
+        transform: translateY(-2px)
       }
     @keyframes reveal-arrive {
       from {
