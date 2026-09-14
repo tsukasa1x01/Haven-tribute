@@ -1425,3 +1425,293 @@
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
 }
+
+/* Visual polish pass: environmental depth and archival tactility. */
+:root {
+  --archive-blue: #0a1428;
+  --archive-teal: #0b3040;
+  --archive-violet: #241d4a;
+  --paper-line: rgba(224, 232, 249, .18);
+}
+
+.app {
+  background:
+    radial-gradient(ellipse at 50% -12%, rgba(91, 112, 202, .12), transparent 42%),
+    linear-gradient(135deg, #070a12, #0b1428 54%, #15102c);
+}
+
+.app:after,
+.chapter:before {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+.app:after {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  opacity: .28;
+  background: linear-gradient(112deg, transparent 20%, rgba(112, 229, 237, .06) 47%, transparent 68%);
+  transform: translate3d(-8%, 0, 0) skewX(-12deg);
+  animation: archive-shaft 24s ease-in-out infinite alternate;
+}
+
+.chapter {
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.chapter:before {
+  z-index: -1;
+  inset: 0;
+  opacity: .36;
+  background:
+    radial-gradient(ellipse at 76% 20%, rgba(112, 229, 237, .09), transparent 30%),
+    linear-gradient(110deg, transparent 38%, rgba(157, 190, 255, .045), transparent 64%);
+  transform: translate3d(var(--depth-x, 0), var(--depth-y, 0), 0);
+  transition: opacity 1.2s ease;
+}
+
+#chapter-0:before {
+  opacity: .28;
+  background: linear-gradient(116deg, transparent 28%, rgba(112, 229, 237, .08), transparent 62%);
+}
+
+#chapter-1:before {
+  opacity: .34;
+  background: radial-gradient(ellipse at 88% 42%, rgba(243, 201, 163, .12), transparent 30%);
+}
+
+#chapter-2:before {
+  opacity: .42;
+  background: radial-gradient(ellipse at 30% 36%, rgba(243, 201, 163, .1), transparent 26%);
+}
+
+#chapter-3 {
+  background:
+    linear-gradient(118deg, rgba(19, 31, 60, .2), rgba(24, 17, 46, .36)),
+    radial-gradient(ellipse at 82% 20%, rgba(117, 184, 255, .1), transparent 32%);
+}
+
+#chapter-3:before {
+  opacity: .3;
+  background: repeating-linear-gradient(176deg, transparent 0 110px, rgba(125, 182, 218, .045) 111px 112px, transparent 113px 210px);
+  transform: rotate(-3deg) translate3d(var(--depth-x, 0), var(--depth-y, 0), 0);
+}
+
+#chapter-4:before {
+  opacity: .55;
+  background:
+    radial-gradient(ellipse at 50% 68%, rgba(71, 180, 202, .15), transparent 42%),
+    linear-gradient(102deg, transparent 18%, rgba(5, 9, 25, .38) 55%, transparent 83%);
+  animation: incident-breath 11s ease-in-out infinite alternate;
+}
+
+#chapter-5:before {
+  opacity: .5;
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(91, 210, 204, .2), transparent 43%),
+    linear-gradient(168deg, transparent 30%, rgba(124, 220, 217, .07), transparent 72%);
+  animation: calm-shaft 18s ease-in-out infinite alternate;
+}
+
+.archive-header {
+  box-shadow: 0 12px 32px rgba(2, 7, 18, .16);
+}
+
+.archive-header:after {
+  content: attr(data-archive-status);
+  position: absolute;
+  left: 50%;
+  bottom: .35rem;
+  transform: translateX(-50%);
+  color: rgba(145, 160, 188, .54);
+  font-size: .45rem;
+  letter-spacing: .18em;
+  white-space: nowrap;
+}
+
+.eyebrow,
+.signal-line,
+.signal-label,
+.archive-time,
+.contribution-date {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.chapter h2,
+.signal-reveal h1,
+.final-message,
+.celebration-data h3,
+.finale-section-label h3 {
+  text-shadow: 0 10px 35px rgba(0, 0, 0, .22);
+}
+
+.record-card,
+.evidence,
+.contribution,
+.companion-record,
+.note,
+.wish-note {
+  position: relative;
+  border-color: var(--paper-line);
+  animation: border-breathe 9s ease-in-out infinite;
+}
+
+.record-card:after,
+.contribution:after,
+.wish-note:after {
+  content: 'REC.';
+  position: absolute;
+  top: .7rem;
+  right: .8rem;
+  color: rgba(243, 201, 163, .42);
+  font: .48rem ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .14em;
+  transform: rotate(3deg);
+}
+
+.record-card:nth-child(3n) {
+  transform: translateY(-.45rem) rotate(-.35deg);
+}
+
+.record-card:nth-child(3n + 2) {
+  transform: translateY(1.2rem) rotate(.25deg);
+}
+
+.contribution:nth-child(4n) {
+  transform: rotate(-.7deg) translateY(.35rem);
+}
+
+.contribution:nth-child(5n) {
+  transform: rotate(.45deg) translateY(-.25rem);
+}
+
+.contribution:hover {
+  box-shadow: 0 20px 42px rgba(3, 7, 18, .38), 0 0 0 1px rgba(112, 229, 237, .08);
+}
+
+.message-note .message {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: .99rem;
+}
+
+.contribution-card .contribution-art {
+  box-shadow: 5px 7px 0 rgba(4, 9, 20, .28);
+}
+
+.well-wishers:before,
+.well-wishers:after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.well-wishers:before {
+  inset: 8% 6%;
+  opacity: .24;
+  background-image: radial-gradient(circle, rgba(205, 244, 255, .72) 0 1px, transparent 1.5px);
+  background-size: 137px 113px;
+  animation: constellation-drift 22s ease-in-out infinite alternate;
+}
+
+.well-wishers:after {
+  inset: 19% 12% 28%;
+  opacity: .11;
+  background: linear-gradient(28deg, transparent 49.7%, rgba(160, 224, 236, .8) 50%, transparent 50.3%),
+    linear-gradient(146deg, transparent 49.7%, rgba(160, 224, 236, .6) 50%, transparent 50.3%);
+  transform: rotate(-7deg);
+}
+
+.well-wisher-board {
+  position: relative;
+  z-index: 2;
+}
+
+.final-ocean-epilogue {
+  background:
+    radial-gradient(ellipse at 50% 78%, rgba(111, 222, 211, .26), transparent 40%),
+    linear-gradient(180deg, transparent, rgba(6, 40, 57, .92) 72%, #04121e);
+}
+
+@keyframes archive-shaft {
+  to { transform: translate3d(9%, 0, 0) skewX(-12deg); opacity: .58; }
+}
+
+@keyframes incident-breath {
+  to { opacity: .72; transform: translate3d(1%, 0, 0); }
+}
+
+@keyframes calm-shaft {
+  to { opacity: .7; transform: translate3d(1%, -1%, 0); }
+}
+
+@keyframes border-breathe {
+  0%, 100% { border-color: rgba(224, 232, 249, .13); }
+  50% { border-color: rgba(112, 229, 237, .25); }
+}
+
+@keyframes constellation-drift {
+  to { transform: translate3d(1.5%, -1%, 0); opacity: .34; }
+}
+
+@media(max-width: 700px) {
+  .archive-header:after {
+    display: none;
+  }
+
+  .app:after {
+    opacity: .16;
+  }
+
+  .record-card:nth-child(3n),
+  .record-card:nth-child(3n + 2),
+  .contribution:nth-child(4n),
+  .contribution:nth-child(5n) {
+    transform: none;
+  }
+
+  .well-wishers:after {
+    opacity: .07;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  .app:after,
+  .chapter:before,
+  .record-card,
+  .evidence,
+  .contribution,
+  .companion-record,
+  .note,
+  .wish-note,
+  .well-wishers:before {
+    animation: none;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body:after {
+    content: '';
+    position: fixed;
+    z-index: 20;
+    inset: 0;
+    pointer-events: none;
+    opacity: .1;
+    background: radial-gradient(circle 230px at var(--cursor-x, 50%) var(--cursor-y, 35%), rgba(112, 229, 237, .22), transparent 72%);
+    mix-blend-mode: screen;
+    transition: opacity .5s ease;
+  }
+
+  body.cursor-away:after {
+    opacity: 0;
+  }
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  body:after {
+    display: none;
+  }
+}

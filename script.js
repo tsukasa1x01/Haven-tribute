@@ -170,6 +170,17 @@ Best regards from this frequent profile changer aka Kurumii :KurumiLove:`,
 Hope you have an amazing day, bro. Wishing you nothing but happiness, good health, success, and plenty more great memories. Appreciate you always, and I hope this year brings you everything you’re hoping for. Enjoy your day to the fullest!
 ---Kami`,
     date: '2026.09.18'
+  }, {
+    type: 'message',
+    from: 'Aprillis',
+    message: `Happy birthday and wishing you well in life and your future, don't stop going forward and don't let anything hold you back
+Happy bday Shadow`,
+    date: '2026.09.18'
+  }, {
+    type: 'message',
+    from: 'Gun',
+    message: 'Hello Shadow, wishing you a happy birthday and a long, happy life and future',
+    date: '2026.09.18'
   },
 
   {
@@ -321,6 +332,35 @@ function renderProgress() {
   }).join('');
 }
 
+function setupEnvironmentalCursor() {
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let targetX = window.innerWidth * .5;
+    let targetY = window.innerHeight * .35;
+    let currentX = targetX;
+    let currentY = targetY;
+    let frame = null;
+    const update = () => {
+      currentX += (targetX - currentX) * .12;
+      currentY += (targetY - currentY) * .12;
+      document.documentElement.style.setProperty('--cursor-x', `${currentX}px`);
+      document.documentElement.style.setProperty('--cursor-y', `${currentY}px`);
+      if (Math.abs(targetX - currentX) > .2 || Math.abs(targetY - currentY) > .2) {
+        frame = requestAnimationFrame(update);
+      } else {
+        frame = null;
+      }
+    };
+    document.addEventListener('pointermove', event => {
+      targetX = event.clientX;
+      targetY = event.clientY;
+      document.body.classList.remove('cursor-away');
+      if (!frame) frame = requestAnimationFrame(update);
+    }, { passive: true });
+    document.addEventListener('pointerleave', () => document.body.classList.add('cursor-away'));
+  }
+}
+
 function showChapter(index, remember = true) {
   currentChapter = Math.max(0, Math.min(5, index));
   if (currentChapter !== 4) stopOceanAutoScroll();
@@ -331,6 +371,7 @@ function showChapter(index, remember = true) {
   document.querySelectorAll('.chapter').forEach(chapter => chapter.classList.toggle('active',
     Number(chapter.dataset.chapter) === currentChapter));
   app.classList.toggle('chapter-nav-visible', currentChapter > 0);
+  $('.archive-header').dataset.archiveStatus = `ARCHIVE // ${chapterNumerals[currentChapter]}`;
   document.querySelectorAll('.progress-dot').forEach((dot, index) => {
     dot.classList.toggle('active', index === currentChapter);
     dot.disabled = !devBypassProgression && (index > highestChapter || (index === 5 && !
@@ -609,6 +650,14 @@ function showOceanRecovery() {
   });
 }
 
+function shuffleItems(items) {
+  for (let index = items.length - 1; index > 0; index--) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [items[index], items[randomIndex]] = [items[randomIndex], items[index]];
+  }
+  return items;
+}
+
 function renderContributions() {
   const populated = contributions.filter(item => !(item.type === 'card' && item.image.includes(
     'card-placeholder')));
@@ -641,6 +690,7 @@ function renderContributions() {
     'card-placeholder')));
   const cards = populated.filter(item => item.type === 'card');
   const messages = populated.filter(item => item.type === 'message');
+  const shuffledMessages = shuffleItems([...messages]);
   let cardNumber = 0;
   let messageNumber = 0;
   const videoSlot = {
@@ -648,7 +698,7 @@ function renderContributions() {
     from: 'VIDEO WISH',
     date: '2026.09.18'
   };
-  const ordered = [...cards, videoSlot, ...messages];
+  const ordered = [...cards, videoSlot, ...shuffledMessages];
   $('#contribution-count').textContent =
     `ARCHIVE CONTRIBUTIONS // ${cards.length + messages.length + 1}`;
   $('#finale-stats').textContent =
@@ -806,9 +856,11 @@ function setupDeveloperMode() {
 
 function initApp() {
   renderProgress();
+  $('.archive-header').dataset.archiveStatus = `ARCHIVE // ${chapterNumerals[currentChapter]}`;
   renderRecords();
   renderContributions();
   setupFinaleEnhancements();
+  setupEnvironmentalCursor();
   createParticles();
   initSignal();
   renderCompanion();
