@@ -99,6 +99,7 @@
           <button type="button" id="dev-bypass">BYPASS PROGRESSION: ON</button>
           <button type="button" id="dev-reset">RESET PROGRESSION</button>
           <button type="button" id="dev-lock">PREVIEW LOCK SCREEN</button>
+          <button type="button" id="dev-ending">PREVIEW ENDING CREDITS</button>
         </div>
       </aside>
 
@@ -223,20 +224,70 @@
 
       <section class="chapter archive-chapter" id="chapter-3" data-chapter="3">
         <div class="chapter-intro">
-          <p class="eyebrow">RECORD // 03 &nbsp; STATUS: COMPLETE</p>
+          <p class="eyebrow">ARCHIVE RECORD // 04 &nbsp; STATUS: UNDER INVESTIGATION</p>
           <span class="chapter-number">IV</span>
         </div>
 
-        <div class="archive-heading">
-          <p class="eyebrow">ACCESSING PERSONAL ARCHIVE...</p>
-          <h2>SHADOW'S<br><em>ARCHIVE</em></h2>
-          <p class="lede">A collection of records, memories, and questionable incidents.</p>
-        </div>
+        <div class="subject-investigation" id="subject-investigation">
+          <div class="subject-heading">
+            <p class="eyebrow">ACCESSING SUBJECT ANALYSIS...</p>
+            <p class="subject-sequence" id="subject-sequence" aria-live="polite">SUBJECT IDENTIFIED</p>
+            <h2>THE<br><em>SUBJECT</em></h2>
+            <p class="lede">Let's see what kind of person we're dealing with.</p>
+            <div class="subject-meta">
+              <span>SUBJECT: SHADOW</span>
+              <span>ANALYSIS: INITIALIZED</span>
+            </div>
+          </div>
 
-        <div class="record-stream" id="record-stream"></div>
-        <button class="text-button" id="index-records" type="button">
-          INDEX ALL RECORDS <span>→</span>
-        </button>
+          <div class="subject-grid">
+            <section class="observation-panel" aria-labelledby="observation-title">
+              <div class="panel-heading">
+                <p class="eyebrow" id="observation-title">OBSERVATION LOG</p>
+                <span class="panel-status">RUNNING</span>
+              </div>
+              <ol class="observation-list">
+                <li><span>OBSERVATION 01</span><strong>OCEAN AFFINITY .......... HIGH</strong></li>
+                <li><span>OBSERVATION 02</span><strong>CHAOS RESISTANCE ........ UNKNOWN</strong></li>
+                <li><span>OBSERVATION 03</span><strong>BIRTHDAY DETECTION ...... SUCCESS</strong></li>
+                <li><span>OBSERVATION 04</span><strong>NORMAL BEHAVIOUR ........ NOT FOUND</strong></li>
+              </ol>
+            </section>
+
+            <aside class="subject-annotation">FIELD NOTE // findings remain inconclusive.</aside>
+          </div>
+
+          <section class="subject-conclusion" id="subject-conclusion" aria-live="polite">
+            <p class="eyebrow">CONCLUSION</p>
+            <p>Subject appears to be a perfectly normal human being.</p>
+            <span>...probably.</span>
+          </section>
+
+          <section class="association-analysis" id="association-analysis" aria-live="polite">
+            <p class="eyebrow">ADDITIONAL ANALYSIS REQUIRED</p>
+            <p class="analysis-search" id="analysis-search">SEARCHING FOR ASSOCIATED PATTERNS...</p>
+            <div class="association-result" id="association-result" hidden>
+              <p class="eyebrow">ADDITIONAL ASSOCIATION DETECTED.</p>
+              <p class="analysis-search">SEARCHING...</p>
+              <p class="association-label">ASSOCIATION FOUND:</p>
+              <h3>OCEAN</h3>
+              <div class="association-meta">
+                <span>ASSOCIATION TYPE: CONCEPTUAL</span>
+                <span>CONFIDENCE: HIGH</span>
+                <span>SOURCE: ARCHIVE ANALYSIS</span>
+              </div>
+              <button class="archive-button" id="investigate-association" type="button">INVESTIGATE ASSOCIATION <span>↗</span></button>
+            </div>
+          </section>
+
+          <section class="subject-ending" id="subject-ending" hidden>
+            <p class="eyebrow">ANALYSIS COMPLETE.</p>
+            <p>SUBJECT: SHADOW<br>PRIMARY STATUS: NORMAL<br>SECONDARY STATUS: QUESTIONABLE</p>
+            <p class="lede">ADDITIONAL INVESTIGATION RECOMMENDED.</p>
+            <p class="eyebrow">ASSOCIATED RECORD // 05 &nbsp; STATUS: PENDING</p>
+            <button class="text-button" id="index-records" type="button">OPEN ASSOCIATED RECORD <span>→</span></button>
+          </section>
+        </div>
       </section>
 
       <section class="chapter ocean-chapter" id="chapter-4" data-chapter="4">
@@ -247,14 +298,16 @@
 
         <div class="ocean-incident" id="ocean-incident">
           <div class="ocean-copy">
-            <p class="eyebrow">CATEGORY: UNEXPLAINED // STATUS: ACTIVE</p>
-            <h2>OCEAN EXPOSURE<br><em>DETECTED</em></h2>
-            <p class="lede">The archive has found an association it cannot ignore.</p>
+            <p class="eyebrow">SUBJECT: SHADOW</p>
+            <p class="ocean-sequence" id="ocean-sequence" aria-live="polite">CATEGORY: UNEXPLAINED</p>
+            <p class="ocean-status">STATUS: ACTIVE</p>
+            <h2>THE OCEAN<br><em>INCIDENT</em></h2>
+            <p class="lede">The archive followed the association. It may already regret that decision.</p>
           </div>
 
-          <div class="evidence-grid">
+          <div class="evidence-grid ocean-investigation-grid">
             <article class="evidence ocean-stage evidence-primary">
-              <p class="eyebrow">EVIDENCE 01 / KNOWN ASSOCIATION</p>
+              <p class="eyebrow">KNOWN ASSOCIATION</p>
               <p>SUBJECT <b>→ SHADOW</b><br>ASSOCIATION <b>→ OCEAN</b></p>
               <div class="meter-label">CONFIDENCE: <span>87%</span></div>
               <div class="meter"><i style="width:87%"></i></div>
@@ -264,19 +317,20 @@
             </article>
 
             <article class="evidence ocean-stage evidence-secondary">
-              <p class="eyebrow">EVIDENCE 02</p>
+              <p class="eyebrow">ADDITIONAL SEARCH</p>
               <p>SEARCHING FOR ADDITIONAL OCEAN ACTIVITY...</p>
               <p class="result">RESULTS: TOO MANY<br><strong>THIS IS GETTING WORRYING.</strong></p>
             </article>
           </div>
 
           <div class="ocean-analysis ocean-stage">
+            <p class="eyebrow">SUBJECT ANALYSIS</p>
             <p>SUBJECT: SHADOW</p>
             <p>OCEAN ASSOCIATION: CONFIRMED</p>
             <p>OCEAN EXPOSURE: SIGNIFICANT</p>
             <div class="probability">
-              <p>PROBABILITY OF BECOMING ONE WITH THE OCEAN: <b>91%</b></p>
-              <div class="meter"><i style="width:91%"></i></div>
+              <p>PROBABILITY OF BECOMING ONE WITH THE OCEAN: <b id="ocean-probability-value">0%</b></p>
+              <div class="meter"><i id="ocean-probability-meter" style="width:0%"></i></div>
             </div>
             <p class="warning-label">WARNING</p>
             <h3 id="ocean-warning">PLEASE DO NOT BECOME ONE WITH THE OCEAN.</h3>
@@ -288,12 +342,13 @@
           <div class="ocean-recovery" id="ocean-recovery" hidden>
             <p class="eyebrow">INCIDENT RECORD COMPLETE.</p>
             <p>SUBJECT REMAINS ON LAND.<br><em>FOR NOW.</em></p>
-            <p class="status-line">STATUS: SHADOW — SAFE / OCEAN — SUSPICIOUS</p>
+            <p class="status-line">INCIDENT STATUS</p>
+            <p class="status-line">SHADOW — SAFE / OCEAN — SUSPICIOUS</p>
             <div class="ocean-completion">
-              <p class="eyebrow">ADDITIONAL RECORD DETECTED.</p>
-              <p>TYPE: MESSAGES<br>SOURCE: MULTIPLE CONTRIBUTORS</p>
+              <p class="eyebrow">ARCHIVE RECORD // 05 &nbsp; STATUS: CLOSED</p>
+              <p>ADDITIONAL CONTRIBUTIONS DETECTED.<br>ARCHIVE CONTINUATION AVAILABLE.</p>
               <button class="text-button" id="finish-ocean" type="button">
-                OPEN ADDITIONAL RECORD <span>→</span>
+                OPEN FINAL RECORD <span>→</span>
               </button>
             </div>
           </div>
@@ -358,9 +413,51 @@
           <div class="epilogue-light" aria-hidden="true"></div>
           <p class="eyebrow">THE OCEAN, AT LAST</p>
           <p class="callback">THE OCEAN CLAIMS ANOTHER</p>
+          <button class="conclusion-button" id="approach-conclusion" type="button">
+            APPROACH THE CONCLUSION <span>↓</span>
+          </button>
         </div>
       </section>
     </main>
+
+    <section class="hidden-ending" id="hidden-ending" hidden aria-label="Ending credits">
+      <div class="ending-atmosphere" aria-hidden="true"></div>
+      <div class="ending-particles" aria-hidden="true"></div>
+      <div class="ending-vignette" aria-hidden="true"></div>
+      <div class="ending-roll" id="ending-roll">
+        <div class="ending-intro ending-credit-group">
+          <p class="ending-title">SHADOW'S ARCHIVE</p>
+          <p class="ending-subtitle">A BIRTHDAY RECORD</p>
+        </div>
+        <div class="ending-credit-group">
+          <p class="ending-label">DEVELOPED BY</p>
+          <p class="ending-name ending-name-primary">KURUMII</p>
+        </div>
+        <div class="ending-credit-group">
+          <p class="ending-label">APPROVED BY</p>
+          <p class="ending-name">RUBY</p>
+        </div>
+        <div class="ending-credit-group ending-credit-group-small">
+          <p class="ending-label">REVIEW &amp; FEEDBACK</p>
+          <p class="ending-name">RUBY</p>
+          <p class="ending-name">KURO</p>
+        </div>
+        <div class="ending-credit-group ending-credit-group-small">
+          <p class="ending-label">KEY DESIGNER</p>
+          <p class="ending-name">NATSUk!</p>
+        </div>
+        <div class="ending-credit-group ending-contributors">
+          <p class="ending-label">WITH CONTRIBUTIONS FROM</p>
+          <div class="ending-contributor-list" id="ending-contributor-list"></div>
+        </div>
+        <div class="ending-final ending-credit-group">
+          <p class="ending-thanks">THANK YOU FOR BEING PART OF THIS RECORD.</p>
+          <p class="ending-birthday">HAPPY BIRTHDAY, SHADOW.</p>
+          <p class="ending-closed">THE ARCHIVE IS NOW CLOSED.</p>
+          <p class="ending-callback">THE OCEAN REMAINS SUSPICIOUS.</p>
+        </div>
+      </div>
+    </section>
 
     <div class="viewer" id="viewer" hidden>
       <button class="viewer-close" id="viewer-close" type="button" aria-label="Close image viewer">×</button>

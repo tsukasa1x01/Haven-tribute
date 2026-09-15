@@ -1,27 +1,8 @@
 const RELEASE_AT = Date.parse('2026-09-17T17:00:00Z');
-const chapters = ['THE SIGNAL', 'THE REVEAL', 'THE CELEBRATION', "SHADOW'S ARCHIVE",
+const chapters = ['THE SIGNAL', 'THE REVEAL', 'THE CELEBRATION', 'THE SUBJECT',
   'THE OCEAN INCIDENT', 'ONE WITH THE OCEAN'
 ];
 const chapterNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI'];
-const archiveRecords = [{
-  id: '01',
-  title: 'RECORD SLOT',
-  meta: 'CONTENT PENDING APPROVAL',
-  text: 'A future personal archive record will live here.',
-  kind: 'PLACEHOLDER ARTIFACT'
-}, {
-  id: '02',
-  title: 'RECORD SLOT',
-  meta: 'CONTENT PENDING APPROVAL',
-  text: 'A future memory, quote, or message will live here.',
-  kind: 'PLACEHOLDER ARTIFACT'
-}, {
-  id: '03',
-  title: 'SUBJECT PROFILE',
-  meta: 'SHADOW // PERSONAL ARCHIVE',
-  text: 'NAME: SHADOW\nDISCORD STATUS: ACTIVE\nCURRENT STATUS: CELEBRATING ANOTHER YEAR',
-  kind: 'STRUCTURED RECORD'
-}];
 const contributions = [{
     type: 'message',
     from: 'Revy',
@@ -182,6 +163,12 @@ Happy bday Shadow`,
     message: 'Hello Shadow, wishing you a happy birthday and a long, happy life and future',
     date: '2026.09.18'
   },
+  {
+    type: 'message',
+    from: 'Kad',
+    message: `hi shadowwwww how you doing? hope you are doing great. ive heard its your birthday, dont think of it as getting older, think of it as getting wiser. you'll end up having more responsibilities. there surely have been ups and downs this year. the best is yet to come for you in the future. today is the day you celebrate how far you have come. i hope you achieve what you are aiming for and i wish the best for you. happy birthday!`,
+    date: '2026.09.18'
+  },
 
   {
     type: 'card',
@@ -250,6 +237,7 @@ let devBypassProgression = false;
 let bakaEarlyAccessGranted = sessionStorage.getItem('shadowArchiveBakaEarlyAccess') === 'true';
 let bakaEarlyAccessDeclined = sessionStorage.getItem('shadowArchiveBakaEarlyAccess') === 'declined';
 let currentChapter = 0;
+let endingActive = false;
 let highestChapter = Number(localStorage.getItem('shadowArchiveHighestChapter')) || 0;
 let unlocked = false;
 let oceanAttempts = 0;
@@ -274,6 +262,8 @@ if (!oceanCompleted && highestChapter > 4) highestChapter = 4;
 let oceanScrollFrame = null;
 let oceanScrollCancelled = false;
 let oceanAtmosphereTimers = [];
+let subjectAnalysisTimers = [];
+let oceanInvestigationTimers = [];
 
 function renderLockChapters() {
   $('#lock-chapters').innerHTML = chapters.map((chapter, index) =>
@@ -364,6 +354,8 @@ function setupEnvironmentalCursor() {
 function showChapter(index, remember = true) {
   currentChapter = Math.max(0, Math.min(5, index));
   if (currentChapter !== 4) stopOceanAutoScroll();
+  if (currentChapter === 3) startSubjectAnalysis();
+  if (currentChapter === 4) startOceanInvestigation();
   if (!devBypassProgression && currentChapter > highestChapter) {
     highestChapter = currentChapter;
     localStorage.setItem('shadowArchiveHighestChapter', String(highestChapter));
@@ -434,6 +426,7 @@ function startOceanAutoScroll() {
 }
 
 function scheduleOceanEntry() {
+  startOceanInvestigation();
   window.setTimeout(() => startOceanAutoScroll(), 450);
   clearOceanAtmosphereTimers();
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -446,6 +439,49 @@ function scheduleOceanEntry() {
 function clearOceanAtmosphereTimers() {
   oceanAtmosphereTimers.forEach(timer => clearTimeout(timer));
   oceanAtmosphereTimers = [];
+}
+
+function clearOceanInvestigationTimers() {
+  oceanInvestigationTimers.forEach(timer => clearTimeout(timer));
+  oceanInvestigationTimers = [];
+}
+
+function startOceanInvestigation() {
+  const chapter = $('#chapter-4');
+  if (!chapter || chapter.dataset.investigationStarted === 'true') return;
+  chapter.dataset.investigationStarted = 'true';
+  clearOceanInvestigationTimers();
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveal = (selector, className = 'is-revealed') => $(selector)?.classList.add(className);
+  const steps = reducedMotion ? [40, 80, 120, 160, 200] : [900, 1800, 3000, 4300, 5600];
+  oceanInvestigationTimers.push(setTimeout(() => {
+    $('#ocean-sequence').textContent = 'OCEAN ASSOCIATION DETECTED';
+    chapter.classList.add('association-detected');
+  }, steps[0]));
+  oceanInvestigationTimers.push(setTimeout(() => {
+    $('#ocean-sequence').textContent = 'BEGINNING INVESTIGATION...';
+    reveal('.evidence-primary');
+  }, steps[1]));
+  oceanInvestigationTimers.push(setTimeout(() => reveal('.evidence-secondary'), steps[2]));
+  oceanInvestigationTimers.push(setTimeout(() => reveal('.ocean-analysis'), steps[3]));
+  oceanInvestigationTimers.push(setTimeout(() => animateOceanProbability(), steps[4]));
+}
+
+function animateOceanProbability() {
+  const value = $('#ocean-probability-value');
+  const meter = $('#ocean-probability-meter');
+  if (!value || !meter) return;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const points = [24, 48, 67, 82, 91];
+  if (reducedMotion) {
+    value.textContent = '91%';
+    meter.style.width = '91%';
+    return;
+  }
+  points.forEach((point, index) => setTimeout(() => {
+    value.textContent = `${point}%`;
+    meter.style.width = `${point}%`;
+  }, index * 350));
 }
 
 function triggerOceanPowerCut(deep) {
@@ -490,10 +526,48 @@ function initSignal() {
   stages.forEach((stage, index) => setTimeout(() => reveal(stage), timings[index]));
 }
 
-function renderRecords() {
-  $('#record-stream').innerHTML = archiveRecords.map(record =>
-    `<article class="record-card"><p class="eyebrow">RECORD // ${record.id}</p><h3>${record.title}</h3><p class="eyebrow">${record.meta}</p><p>${record.text.replaceAll('\n','<br>')}</p><div class="placeholder">STILL TO BE ADDED</div></article>`
-  ).join('');
+function clearSubjectAnalysisTimers() {
+  subjectAnalysisTimers.forEach(timer => clearTimeout(timer));
+  subjectAnalysisTimers = [];
+}
+
+function startSubjectAnalysis() {
+  const investigation = $('#subject-investigation');
+  const conclusion = $('#subject-conclusion');
+  const association = $('#association-analysis');
+  const result = $('#association-result');
+  const ending = $('#subject-ending');
+  if (!investigation || investigation.dataset.started === 'true') return;
+  investigation.dataset.started = 'true';
+  clearSubjectAnalysisTimers();
+  conclusion.classList.remove('is-visible');
+  association.classList.remove('is-visible');
+  result.hidden = true;
+  ending.hidden = true;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const steps = reducedMotion ? [80, 220, 420, 700, 1000] : [900, 1700, 2600, 3900, 5400];
+  const reveal = (element, className = 'is-visible') => element.classList.add(className);
+  subjectAnalysisTimers.push(setTimeout(() => {
+    $('#subject-sequence').textContent = 'ANALYSIS INITIALIZED';
+  }, steps[0]));
+  subjectAnalysisTimers.push(setTimeout(() => {
+    document.querySelector('.observation-panel').classList.add('is-active');
+  }, steps[1]));
+  subjectAnalysisTimers.push(setTimeout(() => reveal(conclusion), steps[2]));
+  subjectAnalysisTimers.push(setTimeout(() => reveal(association), steps[3]));
+  subjectAnalysisTimers.push(setTimeout(() => {
+    result.hidden = false;
+    association.classList.add('has-result');
+  }, steps[4]));
+  $('#investigate-association').onclick = () => {
+    $('#investigate-association').disabled = true;
+    $('#investigate-association').textContent = 'ACCESSING ASSOCIATED RECORD...';
+    setTimeout(() => {
+      $('#investigate-association').textContent = 'RECORD UNAVAILABLE. REASON: CLASSIFIED ...FOR NOW.';
+      ending.hidden = false;
+      ending.classList.add('is-visible');
+    }, reducedMotion ? 120 : 850);
+  };
 }
 
 function renderCompanion() {
@@ -591,24 +665,30 @@ function setupAudio() {
 function oceanInteraction() {
   const button = $('#prevent-merger');
   const warning = $('#ocean-warning');
-  oceanAttempts++;
+  if (!button || button.disabled || oceanAttempts > 0) return;
+  oceanAttempts = 1;
   button.disabled = true;
   document.querySelector('.ocean-incident').classList.add('is-escalating');
-  if (oceanAttempts === 1) {
-    warning.textContent = 'ATTEMPTING INTERVENTION...';
-    setTimeout(() => {
-      warning.textContent = 'INTERVENTION FAILED. REASON: SUBJECT APPEARS TO LIKE THE OCEAN.';
-      button.textContent = 'PREVENT OCEAN MERGER';
-      button.disabled = false;
-    }, 1100);
-  } else if (oceanAttempts === 2) {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const delay = reducedMotion ? 180 : 850;
+  warning.textContent = 'ATTEMPTING INTERVENTION...';
+  setTimeout(() => {
+    warning.textContent = 'ANALYZING SUBJECT RESPONSE...';
+  }, delay);
+  setTimeout(() => {
+    warning.textContent = 'INTERVENTION IN PROGRESS...';
+  }, delay * 2);
+  setTimeout(() => {
     warning.textContent = 'INTERVENTION FAILED.';
-    setTimeout(() => {
-      warning.textContent = 'THE OCEAN HAS BEEN INFORMED.';
-      button.hidden = true;
-      triggerSeaFlash();
-    }, 950);
-  }
+  }, delay * 3);
+  setTimeout(() => {
+    warning.textContent = 'REASON: SUBJECT APPEARS TO LIKE THE OCEAN.';
+  }, delay * 4);
+  setTimeout(() => {
+    warning.textContent = 'THE OCEAN HAS BEEN INFORMED.';
+    button.hidden = true;
+    triggerSeaFlash();
+  }, delay * 5);
 }
 
 function triggerSeaFlash() {
@@ -695,7 +775,7 @@ function renderContributions() {
   let messageNumber = 0;
   const videoSlot = {
     type: 'video',
-    from: 'VIDEO WISH',
+    from: 'Archer / Bugs Bunny',
     date: '2026.09.18'
   };
   const ordered = [...cards, videoSlot, ...shuffledMessages];
@@ -727,6 +807,40 @@ function setupFinaleEnhancements() {
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape') $('#viewer').hidden = true;
   });
+  $('#approach-conclusion').addEventListener('click', enterEnding);
+}
+
+function renderEndingCredits() {
+  $('#ending-contributor-list').innerHTML = wellWishers.map(person =>
+    `<span>${person.name}</span>`
+  ).join('');
+}
+
+function enterEnding() {
+  if (endingActive || currentChapter !== 5) return;
+  endingActive = true;
+  const roll = $('#ending-roll');
+  const video = $('.well-wishers-bg');
+  if (video) video.pause();
+  document.body.classList.add('ending-transition');
+  setTimeout(() => {
+    app.hidden = true;
+    $('#hidden-ending').hidden = false;
+    window.scrollTo({ top: 0, behavior: 'auto' });
+    document.body.classList.remove('ending-transition');
+    roll.classList.remove('is-rolling');
+    void roll.offsetWidth;
+    roll.classList.add('is-rolling');
+  }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 120 : 1100);
+}
+
+function replayEnding() {
+  endingActive = false;
+  $('#hidden-ending').hidden = true;
+  app.hidden = false;
+  showChapter(5, false);
+  window.scrollTo({ top: 0, behavior: 'auto' });
+  enterEnding();
 }
 
 function showSecurityPass() {
@@ -852,13 +966,14 @@ function setupDeveloperMode() {
   });
   panel.querySelectorAll('[data-dev-chapter]').forEach(button => button.addEventListener('click',
     () => showChapter(Number(button.dataset.devChapter), false)));
+  $('#dev-ending').addEventListener('click', replayEnding);
 }
 
 function initApp() {
   renderProgress();
   $('.archive-header').dataset.archiveStatus = `ARCHIVE // ${chapterNumerals[currentChapter]}`;
-  renderRecords();
   renderContributions();
+  renderEndingCredits();
   setupFinaleEnhancements();
   setupEnvironmentalCursor();
   createParticles();

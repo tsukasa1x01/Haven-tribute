@@ -1426,6 +1426,60 @@
   margin-right: calc(50% - 50vw);
 }
 
+/* Chapter VI: separate the archive's voice from the collected birthday notes. */
+.finale-chapter .message-note .message,
+.finale-chapter .wish-note > p:not(.eyebrow):not(.author) {
+  font-family: 'Caveat', 'Segoe Print', 'Bradley Hand', cursive;
+  font-size: clamp(1.18rem, 1.55vw, 1.42rem);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.55;
+  text-transform: none;
+}
+
+.finale-chapter .message-note > .author:last-child,
+.finale-chapter .wish-note > .author {
+  font-family: 'Caveat', 'Segoe Print', 'Bradley Hand', cursive;
+  font-size: 1.02rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.35;
+  text-transform: none;
+}
+
+.finale-chapter .message-note > .author:nth-of-type(2),
+.finale-chapter .wish-note .eyebrow {
+  text-transform: none;
+}
+
+.finale-chapter .message-note > .author:nth-of-type(2) {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: .7rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.finale-chapter .final-message {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
+.finale-chapter .final-message strong {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@media(max-width: 700px) {
+  .finale-chapter .message-note .message,
+  .finale-chapter .wish-note > p:not(.eyebrow):not(.author) {
+    font-size: 1.18rem;
+    line-height: 1.5;
+  }
+}
+
 /* Visual polish pass: environmental depth and archival tactility. */
 :root {
   --archive-blue: #0a1428;
@@ -1438,6 +1492,27 @@
   background:
     radial-gradient(ellipse at 50% -12%, rgba(91, 112, 202, .12), transparent 42%),
     linear-gradient(135deg, #070a12, #0b1428 54%, #15102c);
+}
+
+#chapter-0 {
+  background:
+    radial-gradient(ellipse at 18% 28%, rgba(100, 84, 174, .22), transparent 35%),
+    radial-gradient(ellipse at 82% 72%, rgba(75, 141, 169, .14), transparent 32%),
+    linear-gradient(130deg, #090a1d, #171338 52%, #0d1d32);
+}
+
+#chapter-1 {
+  background:
+    radial-gradient(ellipse at 82% 40%, rgba(179, 130, 181, .2), transparent 30%),
+    radial-gradient(ellipse at 18% 80%, rgba(101, 126, 195, .16), transparent 38%),
+    linear-gradient(132deg, #10132d, #25204b 54%, #132d42);
+}
+
+#chapter-5 {
+  background:
+    radial-gradient(ellipse at 50% 105%, rgba(84, 181, 177, .3), transparent 42%),
+    radial-gradient(ellipse at 78% 22%, rgba(178, 128, 177, .18), transparent 28%),
+    linear-gradient(150deg, #0c1028, #1c1b49 48%, #0b3444);
 }
 
 .app:after,
@@ -1689,6 +1764,801 @@
   .wish-note,
   .well-wishers:before {
     animation: none;
+  }
+}
+
+/* Chapter IV: The Subject investigation. */
+#chapter-3.archive-chapter {
+  background:
+    radial-gradient(ellipse at 18% 22%, rgba(111, 88, 177, .18), transparent 31%),
+    radial-gradient(ellipse at 84% 76%, rgba(76, 83, 169, .14), transparent 35%),
+    linear-gradient(135deg, #0a091c, #181234 52%, #0c122b);
+}
+
+#chapter-3.archive-chapter:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 13% 7% 10%;
+  pointer-events: none;
+  opacity: .18;
+  border: 1px solid rgba(181, 164, 237, .18);
+  background:
+    linear-gradient(90deg, transparent 49.8%, rgba(181, 164, 237, .12) 50%, transparent 50.2%),
+    linear-gradient(0deg, transparent 49.8%, rgba(181, 164, 237, .08) 50%, transparent 50.2%);
+  background-size: 180px 180px;
+  transform: rotate(-2deg);
+  box-shadow: 0 0 100px rgba(100, 76, 177, .12);
+}
+
+.subject-investigation {
+  max-width: 1120px;
+  margin: 3.5rem auto 0;
+  position: relative;
+}
+
+.subject-heading {
+  max-width: 780px;
+  position: relative;
+  z-index: 1;
+}
+
+.subject-sequence {
+  min-height: 1.4em;
+  margin: 1.5rem 0 .8rem;
+  color: #c8baf2;
+  font: .68rem ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .2em;
+}
+
+.subject-heading h2 {
+  font-size: clamp(3.4rem, 8vw, 7rem);
+  margin: 0 0 1rem;
+  letter-spacing: .04em;
+}
+
+.subject-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem 2rem;
+  margin-top: 1.7rem;
+  color: rgba(203, 193, 236, .58);
+  font: .58rem ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .13em;
+}
+
+.subject-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: clamp(2rem, 8vw, 8rem);
+  align-items: start;
+  margin-top: 4.5rem;
+}
+
+.observation-panel {
+  padding: 1.5rem 1.6rem 1.7rem;
+  border: 1px solid rgba(181, 164, 237, .22);
+  border-left: 2px solid rgba(155, 140, 255, .55);
+  background: rgba(13, 10, 34, .48);
+  box-shadow: 16px 18px 0 rgba(5, 5, 17, .25), 0 24px 70px rgba(6, 4, 24, .2);
+  opacity: .68;
+  transform: translateY(12px);
+  transition: opacity .8s ease, transform .8s ease, border-color .8s ease;
+}
+
+.observation-panel.is-active {
+  opacity: 1;
+  transform: none;
+  border-color: rgba(181, 164, 237, .38);
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+  border-bottom: 1px solid rgba(181, 164, 237, .14);
+  padding-bottom: .9rem;
+}
+
+.panel-heading .eyebrow {
+  margin: 0;
+  color: #b6a5e4;
+}
+
+.panel-status {
+  color: rgba(243, 201, 163, .66);
+  font: .5rem ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .16em;
+}
+
+.observation-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.observation-list li {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 1rem;
+  padding: 1.05rem 0;
+  border-bottom: 1px solid rgba(181, 164, 237, .1);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.observation-panel.is-active .observation-list li {
+  opacity: 1;
+  transform: none;
+}
+
+.observation-panel.is-active .observation-list li:nth-child(2) { transition-delay: .12s; }
+.observation-panel.is-active .observation-list li:nth-child(3) { transition-delay: .24s; }
+.observation-panel.is-active .observation-list li:nth-child(4) { transition-delay: .36s; }
+
+.observation-list span,
+.association-meta,
+.subject-ending {
+  color: rgba(181, 164, 237, .6);
+  font: .52rem ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .11em;
+}
+
+.observation-list strong {
+  color: #e3dcf8;
+  font: 400 .7rem ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .08em;
+}
+
+.subject-annotation {
+  margin-top: 3rem;
+  color: rgba(243, 201, 163, .65);
+  font: italic .8rem Georgia, 'Times New Roman', serif;
+  transform: rotate(3deg);
+}
+
+.subject-conclusion,
+.association-analysis,
+.subject-ending {
+  max-width: 760px;
+  margin: 4.5rem 0 0 auto;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .9s ease, transform .9s ease;
+}
+
+.subject-conclusion.is-visible,
+.association-analysis.is-visible,
+.subject-ending.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.subject-conclusion {
+  border-top: 1px solid rgba(181, 164, 237, .22);
+  padding: 1.5rem 2rem;
+  background: linear-gradient(100deg, rgba(52, 37, 94, .35), transparent);
+}
+
+.subject-conclusion p:not(.eyebrow) {
+  margin: 0;
+  color: #eeeaff;
+  font: 300 clamp(1.25rem, 3vw, 2rem) var(--display);
+  line-height: 1.35;
+}
+
+.subject-conclusion span {
+  display: block;
+  margin: .8rem 0 0 60%;
+  color: rgba(243, 201, 163, .72);
+  font: italic 1rem Georgia, 'Times New Roman', serif;
+  transform: rotate(-4deg);
+}
+
+.association-analysis {
+  margin-top: 5rem;
+  padding: 1.7rem 2rem 2rem;
+  border: 1px solid rgba(155, 140, 255, .24);
+  background: rgba(11, 8, 29, .35);
+  box-shadow: 0 0 70px rgba(92, 63, 157, .1);
+}
+
+.analysis-search {
+  color: #c5b9e6;
+  font: .68rem ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .14em;
+}
+
+.association-result {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(181, 164, 237, .15);
+  animation: subject-result-in .9s ease both;
+}
+
+.association-result h3 {
+  margin: .4rem 0 1.5rem;
+  color: #ded3ff;
+  font: 300 clamp(3.4rem, 9vw, 7.5rem) var(--display);
+  letter-spacing: .12em;
+  text-shadow: 0 0 40px rgba(155, 140, 255, .26);
+}
+
+.association-label {
+  margin: 1.5rem 0 0;
+  color: rgba(243, 201, 163, .72);
+  font: .58rem ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .18em;
+}
+
+.association-meta {
+  display: grid;
+  gap: .55rem;
+  margin-bottom: 1.8rem;
+}
+
+.association-analysis.has-result {
+  box-shadow: 0 0 100px rgba(111, 88, 177, .22);
+}
+
+.subject-ending {
+  padding: 1.5rem 0 5rem;
+  border-top: 1px solid rgba(181, 164, 237, .2);
+}
+
+.subject-ending > p:nth-child(2) {
+  color: #ded7f2;
+  line-height: 1.9;
+}
+
+.subject-ending .text-button {
+  margin-top: 1.5rem;
+  color: #eeeaff;
+  border-bottom-color: rgba(181, 164, 237, .35);
+}
+
+@keyframes subject-result-in {
+  from { opacity: 0; transform: translateY(10px) scale(.985); }
+  to { opacity: 1; transform: none; }
+}
+
+@media(max-width: 700px) {
+  #chapter-3.archive-chapter:after {
+    inset: 12% -35% 8%;
+    opacity: .1;
+  }
+
+  .subject-investigation {
+    margin-top: 2.5rem;
+  }
+
+  .subject-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .subject-annotation {
+    justify-self: end;
+    margin: 1rem 1rem 0 0;
+  }
+
+  .observation-list li {
+    grid-template-columns: 1fr;
+    gap: .35rem;
+  }
+
+  .subject-conclusion,
+  .association-analysis,
+  .subject-ending {
+    margin-top: 3.5rem;
+  }
+
+  .subject-conclusion,
+  .association-analysis {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .subject-conclusion span {
+    margin-left: 48%;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  .observation-panel,
+  .observation-list li,
+  .subject-conclusion,
+  .association-analysis,
+  .subject-ending,
+  .association-result {
+    transition: none;
+    animation: none;
+    transform: none;
+  }
+
+  .observation-panel,
+  .observation-list li,
+  .subject-conclusion,
+  .association-analysis {
+    opacity: 1;
+  }
+}
+
+/* Hidden Chapter VII: ending credits. */
+body.ending-transition .app {
+  opacity: 0;
+  filter: brightness(.45);
+  transition: opacity 1.1s ease, filter 1.1s ease;
+}
+
+.hidden-ending {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--text);
+  background: #000;
+}
+
+.hidden-ending[hidden] {
+  display: none;
+}
+
+.final-ocean-epilogue .epilogue-light {
+  pointer-events: none;
+}
+
+.conclusion-button {
+  position: relative;
+  z-index: 2;
+  margin-top: 2.5rem;
+  border: 1px solid rgba(112, 229, 237, .42);
+  background: rgba(4, 15, 27, .42);
+  color: rgba(232, 247, 250, .82);
+  padding: .8rem 1.1rem;
+  font: .62rem ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .16em;
+  transition: border-color .3s ease, background .3s ease, transform .3s ease;
+}
+
+.conclusion-button span {
+  margin-left: .8rem;
+  color: var(--cyan);
+}
+
+.conclusion-button:hover,
+.conclusion-button:focus-visible {
+  border-color: var(--cyan);
+  background: rgba(10, 34, 49, .7);
+  transform: translateY(-2px);
+}
+
+.ending-atmosphere,
+.ending-particles,
+.ending-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ending-atmosphere {
+  z-index: -2;
+  opacity: .55;
+  background:
+    repeating-linear-gradient(174deg, transparent 0 58px, rgba(108, 211, 211, .045) 59px 60px, transparent 61px 124px),
+    radial-gradient(ellipse at 50% 100%, rgba(92, 204, 198, .18), transparent 42%);
+  filter: blur(1px);
+  animation: ending-water 24s ease-in-out infinite alternate;
+}
+
+.ending-particles {
+  z-index: -1;
+  opacity: .22;
+  background-image: radial-gradient(circle, rgba(202, 232, 255, .7) 0 1px, transparent 1.5px);
+  background-size: 113px 137px;
+  animation: ending-particles-drift 30s linear infinite;
+}
+
+.ending-vignette {
+  z-index: 3;
+  background: radial-gradient(ellipse at center, transparent 35%, rgba(2, 5, 14, .38) 100%);
+}
+
+.ending-roll {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 720px);
+  min-height: 2400px;
+  margin: auto;
+  padding: 78vh 1.5rem 24vh;
+  text-align: center;
+  transform: translateY(0);
+}
+
+.ending-roll.is-rolling {
+  animation: ending-credit-roll 150s linear forwards;
+}
+
+.ending-credit-group {
+  margin: 0 auto 10rem;
+}
+
+.ending-intro {
+  margin-bottom: 12rem;
+}
+
+.ending-title {
+  margin: 0;
+  color: #eef3ff;
+  font: 300 clamp(2rem, 5vw, 3.8rem) var(--display);
+  letter-spacing: .08em;
+  text-shadow: 0 0 35px rgba(112, 229, 237, .12);
+}
+
+.ending-subtitle,
+.ending-label,
+.ending-closed,
+.ending-callback {
+  color: rgba(182, 204, 226, .62);
+  font: .62rem ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .2em;
+}
+
+.ending-subtitle {
+  margin-top: 1rem;
+}
+
+.ending-label {
+  margin-bottom: 1.5rem;
+  color: rgba(243, 201, 163, .72);
+}
+
+.ending-name {
+  margin: .6rem 0;
+  color: #e7eaf7;
+  font: 400 clamp(1.25rem, 2.5vw, 1.8rem) var(--display);
+  letter-spacing: .08em;
+}
+
+.ending-name-primary {
+  color: #f1d2b7;
+  font-size: clamp(1.7rem, 4vw, 2.8rem);
+}
+
+.ending-credit-group-small {
+  margin-bottom: 8rem;
+}
+
+.ending-contributors {
+  margin-bottom: 12rem;
+}
+
+.ending-contributor-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .75rem 2.5rem;
+  margin-top: 2rem;
+  color: #d5dfed;
+  font: 400 1.05rem var(--display);
+  letter-spacing: .04em;
+}
+
+.ending-final {
+  margin-bottom: 0;
+}
+
+.ending-thanks {
+  margin-bottom: 3rem;
+  color: #d4dcea;
+  font: 400 1rem Georgia, 'Times New Roman', serif;
+  letter-spacing: .04em;
+}
+
+.ending-birthday {
+  margin: 0 0 3rem;
+  color: #f4d8c1;
+  font: 400 clamp(1.9rem, 5vw, 3.8rem) Georgia, 'Times New Roman', serif;
+  letter-spacing: .03em;
+  text-shadow: 0 0 34px rgba(243, 201, 163, .16);
+}
+
+.ending-closed {
+  margin-bottom: 1.5rem;
+}
+
+.ending-callback {
+  color: rgba(112, 229, 237, .4);
+  font-size: .5rem;
+}
+
+@keyframes ending-credit-roll {
+  from { transform: translateY(0); }
+  to { transform: translateY(calc(-100% + 100vh)); }
+}
+
+@keyframes ending-water {
+  to { transform: translate3d(1%, -1%, 0); opacity: .72; }
+}
+
+@keyframes ending-particles-drift {
+  to { background-position: 90px -80px; }
+}
+
+@media(max-width: 700px) {
+  .ending-roll {
+    min-height: 2900px;
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+  }
+
+  .ending-credit-group {
+    margin-bottom: 8rem;
+  }
+
+  .ending-intro,
+  .ending-contributors {
+    margin-bottom: 10rem;
+  }
+
+  .ending-contributor-list {
+    grid-template-columns: 1fr;
+    gap: .65rem;
+    font-size: 1.05rem;
+  }
+
+  .ending-roll.is-rolling {
+    animation-duration: 180s;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  body.ending-transition .app {
+    transition: none;
+  }
+
+  .hidden-ending {
+    overflow: auto;
+  }
+
+  .ending-atmosphere,
+  .ending-particles,
+  .ending-roll,
+  .ending-roll.is-rolling {
+    animation: none;
+  }
+
+  .ending-roll {
+    min-height: auto;
+    padding-top: 12vh;
+    padding-bottom: 12vh;
+  }
+}
+
+/* Chapter V: cinematic ocean incident. */
+#chapter-4.ocean-chapter {
+  background:
+    radial-gradient(ellipse at 76% 18%, rgba(77, 67, 141, .16), transparent 28%),
+    linear-gradient(132deg, #050914, #0b1429 52%, #10152e);
+  transition: background 2s ease, filter 1.2s ease;
+}
+
+#chapter-4.ocean-chapter:before {
+  opacity: .32;
+  background:
+    linear-gradient(180deg, transparent 25%, rgba(60, 142, 169, .07) 70%, transparent),
+    repeating-linear-gradient(174deg, transparent 0 120px, rgba(112, 229, 237, .035) 121px 122px, transparent 123px 240px);
+  animation: ocean-atmosphere 18s ease-in-out infinite alternate;
+}
+
+#chapter-4.ocean-chapter:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 38% -10% 0;
+  pointer-events: none;
+  opacity: 0;
+  background: repeating-linear-gradient(176deg, transparent 0 38px, rgba(103, 205, 218, .06) 39px 40px, transparent 41px 82px);
+  filter: blur(2px);
+  transform: translateY(15%);
+  transition: opacity 3s ease, transform 4s ease;
+}
+
+#chapter-4.ocean-chapter.association-detected {
+  background:
+    radial-gradient(ellipse at 50% 54%, rgba(42, 125, 157, .16), transparent 40%),
+    radial-gradient(ellipse at 78% 14%, rgba(78, 66, 143, .12), transparent 28%),
+    linear-gradient(132deg, #040812, #081b31 55%, #0a2540);
+}
+
+#chapter-4.ocean-chapter.association-detected:after {
+  opacity: .7;
+  transform: none;
+}
+
+.ocean-incident {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 2.5rem auto 0;
+}
+
+.ocean-copy {
+  margin: 2rem 0 4rem;
+}
+
+.ocean-copy h2 {
+  font-size: clamp(3.2rem, 8vw, 7.2rem);
+  letter-spacing: .05em;
+  text-shadow: 0 12px 42px rgba(0, 0, 0, .34);
+}
+
+.ocean-sequence,
+.ocean-status {
+  min-height: 1.2em;
+  color: #b4c8e5;
+  font: .62rem ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .18em;
+}
+
+.ocean-status {
+  color: rgba(112, 229, 237, .62);
+}
+
+.ocean-investigation-grid {
+  align-items: start;
+}
+
+.ocean-investigation-grid .evidence {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: none;
+  transition: opacity .9s ease, transform .9s ease, border-color 1s ease, background 1s ease;
+}
+
+.ocean-investigation-grid .evidence.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+.ocean-investigation-grid .evidence-primary {
+  background: rgba(8, 17, 33, .64);
+}
+
+.ocean-investigation-grid .evidence-secondary {
+  background: rgba(10, 24, 42, .52);
+}
+
+.ocean-investigation-grid .evidence-secondary .result {
+  opacity: 1;
+  animation: none;
+}
+
+.ocean-investigation-grid .meter i,
+.ocean-analysis .meter i {
+  transition: width 1.2s cubic-bezier(.2, .7, .2, 1);
+}
+
+.ocean-analysis {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: none;
+  transition: opacity .9s ease, transform .9s ease, border-color 1s ease;
+}
+
+.ocean-analysis.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+.ocean-analysis > p:not(.eyebrow) {
+  color: #cad8e9;
+}
+
+.ocean-analysis .probability {
+  margin-top: 2.5rem;
+  opacity: 1;
+}
+
+.ocean-analysis .probability p {
+  color: #bceaf0;
+}
+
+.ocean-analysis .probability b {
+  display: inline-block;
+  min-width: 3ch;
+  color: #e4fbff;
+  font-size: 1.1rem;
+}
+
+.ocean-analysis .warning-label,
+.ocean-analysis h3,
+.ocean-analysis .archive-button {
+  opacity: 1;
+  animation: none;
+}
+
+.ocean-analysis h3 {
+  color: #c9f4f6;
+  text-shadow: 0 0 32px rgba(112, 229, 237, .15);
+}
+
+.ocean-analysis .archive-button:disabled {
+  cursor: wait;
+  opacity: .65;
+}
+
+.ocean-incident.is-escalating {
+  filter: brightness(.76) saturate(1.05);
+}
+
+.ocean-incident.is-escalating .ocean-analysis {
+  border-color: rgba(112, 229, 237, .38);
+  box-shadow: 0 0 80px rgba(53, 156, 185, .14);
+}
+
+.ocean-recovery {
+  border-top: 1px solid rgba(112, 229, 237, .2);
+  padding-top: 2rem;
+}
+
+.ocean-recovery .status-line + .status-line {
+  color: #b9e9e7;
+  letter-spacing: .16em;
+}
+
+.ocean-completion {
+  border-top-color: rgba(112, 229, 237, .2);
+}
+
+@keyframes ocean-atmosphere {
+  to { transform: translate3d(1%, -1%, 0); opacity: .72; }
+}
+
+@media(max-width: 700px) {
+  #chapter-4.ocean-chapter:after {
+    inset: 46% -35% 0;
+  }
+
+  .ocean-incident {
+    margin-top: 2rem;
+  }
+
+  .ocean-copy {
+    margin-bottom: 3rem;
+  }
+
+  .ocean-copy h2 {
+    font-size: clamp(2.8rem, 14vw, 4.8rem);
+  }
+
+  .ocean-investigation-grid .evidence {
+    transform: translateY(12px);
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  #chapter-4.ocean-chapter,
+  #chapter-4.ocean-chapter:before,
+  #chapter-4.ocean-chapter:after,
+  .ocean-investigation-grid .evidence,
+  .ocean-analysis,
+  .ocean-analysis .meter i {
+    animation: none;
+    transition: none;
+  }
+
+  #chapter-4.ocean-chapter:after {
+    opacity: .35;
+    transform: none;
+  }
+
+  .ocean-investigation-grid .evidence,
+  .ocean-analysis {
+    opacity: 1;
+    transform: none;
   }
 }
 
