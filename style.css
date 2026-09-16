@@ -2453,6 +2453,35 @@ body.ending-transition .app {
   transform: none;
 }
 
+/* Keep hidden chapters from spending time on visual animation work. */
+.chapter:not(.active) * {
+  animation-play-state: paused!important;
+}
+
+.chapter:not(.active):before,
+.chapter:not(.active):after {
+  animation-play-state: paused!important;
+}
+
+/* Preserve a visual missing-image fallback without development placeholder copy. */
+.contribution-art .art-fallback {
+  color: transparent;
+  font-size: 0;
+}
+
+@media(max-width: 700px) {
+  .finale-chapter .contribution {
+    content-visibility: auto;
+    contain-intrinsic-size: 280px;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .finale-chapter .pfp-particle {
+    animation: none;
+  }
+}
+
 .ocean-analysis > p:not(.eyebrow) {
   color: #cad8e9;
 }
@@ -2464,6 +2493,28 @@ body.ending-transition .app {
 
 .ocean-analysis .probability p {
   color: #bceaf0;
+}
+
+/* Keep the portrait wish video on a simple compositor layer. */
+.video-wish-card {
+  transform: none!important;
+  animation: none!important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  contain: paint;
+}
+
+.video-wish-player {
+  display: block;
+  width: min(100%, 260px);
+  aspect-ratio: 9 / 16;
+  max-height: 70vh;
+  object-fit: contain;
+  object-position: center;
+  background: #02050b;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .ocean-analysis .probability b {

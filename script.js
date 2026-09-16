@@ -362,6 +362,7 @@ function showChapter(index, remember = true) {
   }
   document.querySelectorAll('.chapter').forEach(chapter => chapter.classList.toggle('active',
     Number(chapter.dataset.chapter) === currentChapter));
+  syncChapterActivity();
   app.classList.toggle('chapter-nav-visible', currentChapter > 0);
   $('.archive-header').dataset.archiveStatus = `ARCHIVE // ${chapterNumerals[currentChapter]}`;
   document.querySelectorAll('.progress-dot').forEach((dot, index) => {
@@ -375,6 +376,14 @@ function showChapter(index, remember = true) {
     behavior: 'smooth'
   });
   if (currentChapter === 4 && !oceanCompleted) scheduleOceanEntry();
+}
+
+function syncChapterActivity() {
+  document.querySelectorAll('.chapter video').forEach(video => {
+    const chapter = video.closest('.chapter');
+    if (chapter?.classList.contains('active')) return;
+    video.pause();
+  });
 }
 
 function stopOceanAutoScroll() {
@@ -749,7 +758,7 @@ function renderContributions() {
   $('#finale-stats').textContent =
     `${cards.length} RECORDS / ${messages.length} MESSAGES / 1 BIRTHDAY`;
   $('#contribution-stream').innerHTML = populated.map(item => item.type === 'card' ?
-    `<article class="contribution contribution-card"><p class="eyebrow">RECORD // CONTRIBUTION ${String(++cardNumber).padStart(2,'0')}</p><p class="author">FROM: ${item.from}</p><p class="contribution-date">${item.date || ''}</p><button class="contribution-art" type="button" data-image="${item.image}" aria-label="Open birthday card from ${item.from}"><img src="${item.image}" alt="Birthday card from ${item.from}" loading="lazy"><span class="art-fallback">BIRTHDAY CARD<br>PLACEHOLDER ARTWORK</span></button>${item.caption ? `<p class="card-caption">${item.caption}</p>` : ''}</article>` :
+    `<article class="contribution contribution-card"><p class="eyebrow">RECORD // CONTRIBUTION ${String(++cardNumber).padStart(2,'0')}</p><p class="author">FROM: ${item.from}</p><p class="contribution-date">${item.date || ''}</p><button class="contribution-art" type="button" data-image="${item.image}" aria-label="Open birthday card from ${item.from}"><img src="${item.image}" alt="Birthday card from ${item.from}" loading="lazy"><span class="art-fallback">IMAGE UNAVAILABLE</span></button>${item.caption ? `<p class="card-caption">${item.caption}</p>` : ''}</article>` :
     `<article class="contribution message-note"><p class="eyebrow">MESSAGE // ${String(++messageNumber).padStart(2,'0')}</p><p class="author">FROM: ${item.from}</p><p class="contribution-date">${item.date || ''}</p><p class="message">${item.message}</p><p class="author">— ${item.from}</p></article>`
   ).join('');
   $('#wish-stream').innerHTML = messages.map((item, index) =>
@@ -785,7 +794,7 @@ function renderContributions() {
     `${cards.length} RECORDS / 1 VIDEO / ${messages.length} MESSAGES / 1 BIRTHDAY`;
   $('#contribution-stream').innerHTML = ordered.map(item => {
     if (item.type === 'card')
-      return `<article class="contribution contribution-card"><p class="eyebrow">RECORD // CONTRIBUTION ${String(++cardNumber).padStart(2,'0')}</p><p class="author">FROM: ${item.from}</p><p class="contribution-date">${item.date || ''}</p><button class="contribution-art" type="button" data-image="${item.image}" aria-label="Open birthday card from ${item.from}"><img src="${item.image}" alt="Birthday card from ${item.from}" loading="lazy"><span class="art-fallback">BIRTHDAY CARD<br>PLACEHOLDER ARTWORK</span></button>${item.caption ? `<p class="card-caption">${item.caption}</p>` : ''}</article>`;
+      return `<article class="contribution contribution-card"><p class="eyebrow">RECORD // CONTRIBUTION ${String(++cardNumber).padStart(2,'0')}</p><p class="author">FROM: ${item.from}</p><p class="contribution-date">${item.date || ''}</p><button class="contribution-art" type="button" data-image="${item.image}" aria-label="Open birthday card from ${item.from}"><img src="${item.image}" alt="Birthday card from ${item.from}" loading="lazy"><span class="art-fallback">IMAGE UNAVAILABLE</span></button>${item.caption ? `<p class="card-caption">${item.caption}</p>` : ''}</article>`;
     if (item.type === 'video')
       return `<article class="contribution video-wish-card"><p class="eyebrow">VIDEO // WISH</p><p class="author">FROM: ${item.from}</p><p class="contribution-date">${item.date}</p><video class="video-wish-player" controls preload="metadata" aria-label="Birthday video wish"><source src="assets/videos/shadow-birthday-wish.mp4" type="video/mp4">Your browser does not support local video playback.</video></article>`;
     return `<article class="contribution message-note"><p class="eyebrow">MESSAGE // ${String(++messageNumber).padStart(2,'0')}</p><p class="author">FROM: ${item.from}</p><p class="contribution-date">${item.date || ''}</p><p class="message">${item.message}</p><p class="author">— ${item.from}</p></article>`;
@@ -807,6 +816,19 @@ function setupFinaleEnhancements() {
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape') $('#viewer').hidden = true;
   });
+  document.querySelectorAll('.video-wish-player').forEach(video => {
+    if (video.dataset.audioBound === 'true') return;
+    video.dataset.audioBound = 'true';
+    video.addEventListener('play', () => {
+      video.dataset.resumeBackgroundMusic = String(Boolean(backgroundMusic &&
+        !backgroundMusic.paused));
+      if (video.dataset.resumeBackgroundMusic === 'true') pauseBackgroundMusic();
+    });
+    video.addEventListener('ended', () => {
+      if (video.dataset.resumeBackgroundMusic === 'true') resumeBackgroundMusic();
+      video.dataset.resumeBackgroundMusic = 'false';
+    });
+  });
   $('#approach-conclusion').addEventListener('click', enterEnding);
 }
 
@@ -820,8 +842,6 @@ function enterEnding() {
   if (endingActive || currentChapter !== 5) return;
   endingActive = true;
   const roll = $('#ending-roll');
-  const video = $('.well-wishers-bg');
-  if (video) video.pause();
   document.body.classList.add('ending-transition');
   setTimeout(() => {
     app.hidden = true;
@@ -973,6 +993,7 @@ function initApp() {
   renderProgress();
   $('.archive-header').dataset.archiveStatus = `ARCHIVE // ${chapterNumerals[currentChapter]}`;
   renderContributions();
+  syncChapterActivity();
   renderEndingCredits();
   setupFinaleEnhancements();
   setupEnvironmentalCursor();
