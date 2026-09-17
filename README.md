@@ -24,14 +24,16 @@ Then open `http://localhost:8000`.
 
 ## Archive Flow
 
-The experience progresses through six chapters:
+The experience progresses through eight chapters:
 
 1. `THE SIGNAL` - identity confirmation and archive entry
 2. `THE REVEAL` - Shadow's birthday record and the Denia artwork
 3. `THE CELEBRATION` - Denia's selectable voice message and subtitles
 4. `SHADOW'S ARCHIVE` - personal archive records
-5. `THE OCEAN INCIDENT` - the interactive ocean intervention sequence
-6. `ONE WITH THE OCEAN` - contribution cards, birthday messages, well-wishers, and the finale
+5. `RUBY'S SURPRISES` - a golden presentation with Ruby's collected birthday cards and video wish
+6. `THE OCEAN INCIDENT` - the interactive ocean intervention sequence
+7. `ONE WITH THE OCEAN` - contribution cards, birthday messages, well-wishers, and the finale
+8. `SECRET CREDITS` - the closing note from the archivist
 
 Progress is stored in browser storage so visitors can resume their session. The site does not send progress or visitor information anywhere.
 
@@ -57,10 +59,11 @@ Keep paths and filenames in sync with the references in `index.html` and `script
 | `assets/audio/denia/birthday-jp.mp3` | Denia Japanese voice message |
 | `assets/audio/denia/birthday-en.mp3` | Denia English voice message |
 | `assets/images/denia/` | Denia portrait and full-body artwork |
-| `assets/images/contributions/` | Birthday cards and contribution artwork |
+| `assets/images/contributions/` | Collective birthday cards and contribution artwork |
+| `assets/images/Ruby/` | Ruby's golden chapter artwork and multi-page wishes |
 | `assets/images/ocean/` | Ocean incident transmission imagery |
 | `assets/images/well-wishers/` | Contributor PFPs, including GIFs |
-| `assets/videos/shadow-birthday-wish.mp4` | Chapter VI video contribution |
+| `assets/videos/shadow-birthday-wish.mp4` | Ruby chapter video wish, displayed inside the phone artwork |
 | `assets/videos/video-bg.mp4` | Well-Wishers background video |
 
 Missing contribution artwork falls back to the existing archive placeholder treatment. Missing PFPs fall back to an initial instead of breaking the page.
@@ -71,8 +74,8 @@ Missing contribution artwork falls back to the existing archive placeholder trea
 - Edit visual styling and responsive behavior in `style.css`.
 - Edit chapter state, audio, subtitles, records, contributions, and well-wisher data in `script.js`.
 - `archiveRecords`, `contributions`, and `wellWishers` are defined near the top of `script.js`.
-- Do not duplicate `renderContributions()` when editing that file; the later definition is the active one and includes the video contribution and shuffled messages.
-- Preserve the six chapter IDs (`chapter-0` through `chapter-5`) because progression and developer preview controls depend on them.
+- `renderRubySurprises()` renders the Ruby chapter's 10 single-image records and 3 multi-page records.
+- Preserve the eight chapter IDs (`chapter-0` through `chapter-7`) because progression and developer preview controls depend on them.
 
 ## Browser Storage
 

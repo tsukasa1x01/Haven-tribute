@@ -962,6 +962,16 @@
 .early-access-dialog::backdrop{background:rgba(4,7,16,.78);backdrop-filter:blur(6px)}
 .early-access-dialog h2{margin:1rem 0 1.5rem;font:300 clamp(1.8rem,5vw,2.8rem) var(--display);line-height:1.05}
 .early-access-actions{display:flex;align-items:center;gap:1.2rem}
+.experience-notice{width:min(100% - 2rem,34rem);max-width:34rem;padding:2rem;color:var(--text);background:#0b1020;border:1px solid rgba(157,190,255,.32);box-shadow:0 25px 80px rgba(0,0,0,.5)}
+.experience-notice::backdrop{background:rgba(4,7,16,.78);backdrop-filter:blur(6px)}
+.experience-notice h2{margin:1rem 0 .8rem;font:300 clamp(1.6rem,5vw,2.5rem) var(--display);line-height:1.05}
+.experience-notice p:not(.eyebrow){color:var(--muted);line-height:1.7}
+.experience-notice .archive-button{margin-top:1.2rem}
+.rotate-device{display:none}
+.experience-notice.phone-entry .rotate-device{display:grid;place-items:center;width:5rem;height:5rem;margin:1.4rem auto .2rem}
+.rotate-device:before{content:'';display:block;width:1.7rem;height:3rem;border:2px solid var(--cyan);border-radius:.35rem;box-shadow:0 0 18px rgba(112,229,237,.22);animation:rotate-device 2.6s ease-in-out infinite}
+.rotate-device span{position:absolute;width:.25rem;height:.25rem;border-radius:50%;background:var(--cyan);transform:translateY(1.05rem)}
+@keyframes rotate-device{0%,100%{transform:rotate(0deg)}35%,65%{transform:rotate(90deg)} }
 .security-pass:before{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(112,229,237,.05),transparent 65%);animation:drift 16s ease-in-out infinite;pointer-events:none}
 .security-orbit{position:absolute;width:min(72vw,680px);aspect-ratio:1;border:1px solid rgba(112,229,237,.12);border-radius:50%;box-shadow:0 0 90px rgba(117,95,255,.14);animation:spin 28s linear infinite;pointer-events:none}
 .security-panel{width:min(100%,470px);position:relative;text-align:center;padding:2.5rem 2rem;border:1px solid rgba(157,190,255,.22);background:rgba(9,14,27,.54);box-shadow:0 25px 80px rgba(0,0,0,.24);backdrop-filter:blur(14px)}
@@ -1508,7 +1518,7 @@
     linear-gradient(132deg, #10132d, #25204b 54%, #132d42);
 }
 
-#chapter-5 {
+#chapter-6 {
   background:
     radial-gradient(ellipse at 50% 105%, rgba(84, 181, 177, .3), transparent 42%),
     radial-gradient(ellipse at 78% 22%, rgba(178, 128, 177, .18), transparent 28%),
@@ -1575,7 +1585,7 @@
   transform: rotate(-3deg) translate3d(var(--depth-x, 0), var(--depth-y, 0), 0);
 }
 
-#chapter-4:before {
+#chapter-5:before {
   opacity: .55;
   background:
     radial-gradient(ellipse at 50% 68%, rgba(71, 180, 202, .15), transparent 42%),
@@ -1583,7 +1593,7 @@
   animation: incident-breath 11s ease-in-out infinite alternate;
 }
 
-#chapter-5:before {
+#chapter-6:before {
   opacity: .5;
   background:
     radial-gradient(ellipse at 50% 100%, rgba(91, 210, 204, .2), transparent 43%),
@@ -2338,14 +2348,14 @@ body.ending-transition .app {
 }
 
 /* Chapter V: cinematic ocean incident. */
-#chapter-4.ocean-chapter {
+#chapter-5.ocean-chapter {
   background:
     radial-gradient(ellipse at 76% 18%, rgba(77, 67, 141, .16), transparent 28%),
     linear-gradient(132deg, #050914, #0b1429 52%, #10152e);
   transition: background 2s ease, filter 1.2s ease;
 }
 
-#chapter-4.ocean-chapter:before {
+#chapter-5.ocean-chapter:before {
   opacity: .32;
   background:
     linear-gradient(180deg, transparent 25%, rgba(60, 142, 169, .07) 70%, transparent),
@@ -2353,7 +2363,7 @@ body.ending-transition .app {
   animation: ocean-atmosphere 18s ease-in-out infinite alternate;
 }
 
-#chapter-4.ocean-chapter:after {
+#chapter-5.ocean-chapter:after {
   content: '';
   position: absolute;
   z-index: -1;
@@ -2366,14 +2376,14 @@ body.ending-transition .app {
   transition: opacity 3s ease, transform 4s ease;
 }
 
-#chapter-4.ocean-chapter.association-detected {
+#chapter-5.ocean-chapter.association-detected {
   background:
     radial-gradient(ellipse at 50% 54%, rgba(42, 125, 157, .16), transparent 40%),
     radial-gradient(ellipse at 78% 14%, rgba(78, 66, 143, .12), transparent 28%),
     linear-gradient(132deg, #040812, #081b31 55%, #0a2540);
 }
 
-#chapter-4.ocean-chapter.association-detected:after {
+#chapter-5.ocean-chapter.association-detected:after {
   opacity: .7;
   transform: none;
 }
@@ -2495,6 +2505,122 @@ body.ending-transition .app {
   color: #bceaf0;
 }
 
+/* Chapter V: Ruby's golden surprise record. */
+.ruby-chapter {
+  background: radial-gradient(ellipse at 50% 20%, rgba(255, 207, 70, .12), transparent 34%), #170e06;
+  overflow: hidden;
+}
+
+.ruby-surprise-backdrop {
+  position: relative;
+  width: min(100%, 1198px);
+  aspect-ratio: 1198 / 667;
+  margin: 2rem auto 0;
+  border: 1px solid rgba(255, 218, 104, .25);
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .35);
+}
+
+.ruby-surprise-backdrop > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ruby-phone-video {
+  position: absolute;
+  top: 13.2%;
+  left: 28%;
+  width: 23.05%;
+  height: 73.16%;
+  overflow: hidden;
+  border-radius: 2px;
+  background: #000;
+  box-shadow: 0 0 0 1px rgba(255, 224, 120, .24);
+}
+
+.ruby-phone-video .ruby-wish-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+  transform: none!important;
+}
+
+.ruby-heading {
+  max-width: 1050px;
+  margin: 4rem auto 2rem;
+}
+
+.ruby-heading h2 {
+  font-size: clamp(3.2rem, 8vw, 7rem);
+  color: #ffe6a0;
+}
+
+.ruby-wish-stream {
+  max-width: 1050px;
+  margin: 3rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.ruby-wish-card {
+  padding: 1rem;
+  background: rgba(38, 23, 10, .72);
+  border: 1px solid rgba(255, 215, 112, .28);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, .24);
+}
+
+.ruby-wish-card .eyebrow {
+  color: #f5cf72;
+  margin-bottom: .8rem;
+}
+
+.ruby-wish-images {
+  display: flex;
+  align-items: flex-start;
+  gap: .45rem;
+}
+
+.ruby-wish-images img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-width: 0;
+  object-fit: contain;
+}
+
+.ruby-wish-images img + img {
+  width: calc(50% - .225rem);
+}
+
+.ruby-wish-images:has(img:nth-child(3)) img {
+  width: calc(33.333% - .3rem);
+}
+
+.ruby-next {
+  display: block;
+  margin: 3rem auto 1rem;
+  color: #ffe6a0;
+}
+
+@media(max-width: 700px) {
+  .ruby-surprise-backdrop {
+    margin-top: 1.5rem;
+  }
+
+  .ruby-wish-stream {
+    grid-template-columns: 1fr;
+  }
+
+  .ruby-next {
+    width: 100%;
+  }
+}
+
 /* Keep the portrait wish video on a simple compositor layer. */
 .video-wish-card {
   transform: none!important;
@@ -2569,7 +2695,7 @@ body.ending-transition .app {
 }
 
 @media(max-width: 700px) {
-  #chapter-4.ocean-chapter:after {
+  #chapter-5.ocean-chapter:after {
     inset: 46% -35% 0;
   }
 
@@ -2591,9 +2717,9 @@ body.ending-transition .app {
 }
 
 @media(prefers-reduced-motion: reduce) {
-  #chapter-4.ocean-chapter,
-  #chapter-4.ocean-chapter:before,
-  #chapter-4.ocean-chapter:after,
+  #chapter-5.ocean-chapter,
+  #chapter-5.ocean-chapter:before,
+  #chapter-5.ocean-chapter:after,
   .ocean-investigation-grid .evidence,
   .ocean-analysis,
   .ocean-analysis .meter i {
@@ -2601,7 +2727,7 @@ body.ending-transition .app {
     transition: none;
   }
 
-  #chapter-4.ocean-chapter:after {
+  #chapter-5.ocean-chapter:after {
     opacity: .35;
     transform: none;
   }
@@ -2634,5 +2760,118 @@ body.ending-transition .app {
 @media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
   body:after {
     display: none;
+  }
+}
+
+/* Chapter 05 Ruby surprises */
+.ruby-chapter {
+  background: radial-gradient(ellipse at 50% 20%, rgba(255, 207, 70, .16), transparent 34%), linear-gradient(135deg, #211506, #4a2b08 52%, #160d05);
+}
+#chapter-3.ruby-chapter {
+  background: radial-gradient(ellipse at 50% 20%, rgba(255, 207, 70, .16), transparent 34%), linear-gradient(135deg, #211506, #4a2b08 52%, #160d05);
+}
+.ruby-heading,
+.ruby-gallery-heading,
+.ruby-gallery,
+.ruby-next {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ruby-heading {
+  margin-top: 5rem;
+}
+.ruby-heading h2 {
+  color: #ffe8a0;
+}
+.ruby-heading h2 em {
+  -webkit-text-stroke-color: rgba(255, 232, 160, .75);
+}
+.ruby-gallery-heading {
+  border-top: 1px solid rgba(255, 219, 112, .35);
+  padding-top: 1.5rem;
+  color: #eedba9;
+}
+.ruby-gallery {
+  columns: 3 260px;
+  column-gap: 1rem;
+  margin-top: 2rem;
+}
+.ruby-record {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 219, 112, .3);
+  background: rgba(36, 19, 4, .7);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .18);
+}
+.ruby-record .eyebrow {
+  color: #f3c85f;
+  margin-bottom: .5rem;
+}
+.ruby-author {
+  margin: 0 0 .8rem;
+  color: #ffe8a0;
+  font-size: .72rem;
+  letter-spacing: .12em;
+}
+.ruby-images {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .5rem;
+}
+.ruby-image-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid rgba(255, 219, 112, .22);
+  background: rgba(10, 5, 1, .4);
+  cursor: zoom-in;
+}
+.ruby-image-button img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.ruby-image-button:hover,
+.ruby-image-button:focus-visible {
+  border-color: #ffe8a0;
+  box-shadow: 0 0 22px rgba(255, 219, 112, .24);
+}
+.ruby-next {
+  display: block;
+  margin-top: 4rem;
+  color: #ffe8a0;
+}
+.credits-chapter {
+  background: radial-gradient(ellipse at 50% 38%, rgba(112, 229, 237, .1), transparent 38%), linear-gradient(135deg, #080d19, #17142b);
+}
+.credits-content {
+  max-width: 760px;
+  margin: 12vh auto 0;
+  text-align: center;
+}
+.credits-content h2 {
+  margin-bottom: 3rem;
+}
+.credits-message {
+  max-width: 620px;
+  margin: 1.4rem auto;
+  color: #d7e1f1;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  line-height: 1.8;
+}
+.credits-content .text-button {
+  margin-top: 2rem;
+}
+@media(max-width: 700px) {
+  .ruby-heading {
+    margin-top: 3rem;
+  }
+  .ruby-gallery {
+    columns: 1;
+  }
+  .credits-content {
+    margin-top: 8vh;
   }
 }
