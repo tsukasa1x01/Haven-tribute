@@ -57,19 +57,23 @@ Also, thank you so much for taking care of the server and handling everything. B
 
 Hope you have a wonderful birthday and an even better year ahead. Enjoy your day! 🎉
 --- by Cheese Catto`,date:'2026.09.18'},
-  {type:'message',from:'Kuro',message:`⋆˚꩜｡ HAPPY BIRTHDAY ｡꩜˚⋆
-╰・Void Catto Nyaaa~ !! :detectivo:
+  {type:'message',from:'Kuro',message:`Hello bro, first of all, happy birthday to you!
 
-Another year closer to becoming an ancient Gambler, may your pulls be extremely lucky, may you never get jump scared by a 4 star, and may you never say “one last pull” 47 times in a row :encorewheeezee:
+I am very glad that I met you and Sissy. Before this, I was all alone trying to find someone to talk and spend time with, but after meeting you and sis, I never felt alone anymore, got someone to yapyap with !❤️
 
-⋆｡° ✩ NYAA BIRTHDAY !! :Hug:
-(Hope you wallet survives~)`,date:'2026.09.18'},
+I am truly grateful to have you and Sissy, I can’t even imagine what would have happened to me if I had never met you both. Anyways, I’m getting too carried away...
+
+On your special day, I just want to wish you lots and lots of happiness, and I really mean it! You deserve all of it and so much more!
+
+Not just happiness, though. May you get infinite gacha luck, and may all your pulls be extremely lucky hehe, May you never say "one last pull" 47 times in a row :3
+
+Happy birthday once again, bro! I hope you always stay happy and keep smiling!`,date:'2026.09.18'},
   {type:'message',from:'King',message:`May this year bring you more happiness
 my dear friend may your life be more beautiful and peaceful
 and hope you can accomplish your goal in life
 happy birthday dear friend shadow.
 -- King/ HosenKing`,date:'2026.09.18'},
-  {type:'message',from:'Loki',message:`Happy birthday, Shadow/void catto nyaa~
+  {type:'message',from:'Shinji',message:`Happy birthday, Shadow/void catto nyaa~
 Wishing you a full year of unending luck, both in gacha and in life. And thank you so much for taking care of the server because of you, we barely have anything to worry about. Really appreciate you. Happy birthday`,date:'2026.09.18'},
   {type:'message',from:'Minze',message:`Happy Birthday, Shadow/Void Catto Nyaa!
 
@@ -127,7 +131,7 @@ const rubySurprises = [
   ['Revy', ['revy-wish-1.png', 'revy-wish-2.png']]
 ].map(([from, images]) => ({from, images, type:'multi'})));
 const wellWishers = [
-  ['Izumi','izumi-pfp.png',['#6da9ff','#b5d8ff']],['Ruby','ruby-pfp.png',['#ff7897','#ffd0d8']],['Mint','mint-pfp.png',['#75d7bc','#d0fff0']],['Shin','shin-pfp.gif',['#8e86ff','#d2cfff']],['Kuro catto nya','kuro-catto-nya-pfp.gif',['#7f91ad','#dbe7f5']],['cheese catto nyaa','cheese-catto-nyaa-pfp.png',['#f1c55e','#fff0b0']],['Revy','revy-pfp.png',['#d46f73','#ffc2ae']],['Kurumii','kurumii-pfp.png',['#a77aff','#e2cfff']],['Nexus','nexus-pfp.png',['#59c6d2','#c2fbff']],['Kad','kad-pfp.png',['#d28f62','#ffe0c4']],['Skadi','skadi-pfp.png',['#91b6e9','#e1efff']],['Saber','saber-pfp.png',['#82d1cb','#d1fff7']],['Bugs bunny','bugs-bunny-pfp.png',['#c4c9d8','#f4f5ff']],['Aprillis','aprillis-pfp.gif',['#df9bd1','#ffe2f7']],['Stormtempest','stormtempest-pfp.png',['#7189d8','#c4d0ff']],['Gun','gun-pfp.png',['#9c9da9','#e5e5ef']],['Coffee','coffee-pfp.png',['#b4866a','#f2d0b5']],['Nams','nams-pfp.png',['#6fb8a5','#c5f0df']],['Shinji','loki-pfp.png',['#7295d8','#d4e1ff']]
+  ['Izumi','izumi-pfp.png',['#6da9ff','#b5d8ff']],['Ruby','ruby-pfp.png',['#ff7897','#ffd0d8']],['Mint','mint-pfp.png',['#75d7bc','#d0fff0']],['Shin','shin-pfp.gif',['#8e86ff','#d2cfff']],['Kuro catto nya','kuro-catto-nyaa-pfp.png',['#7f91ad','#dbe7f5']],['cheese catto nyaa','cheese-catto-nyaa-pfp.png',['#f1c55e','#fff0b0']],['Revy','revy-pfp.png',['#d46f73','#ffc2ae']],['Kurumii','kurumii-pfp.png',['#a77aff','#e2cfff']],['Nexus','nexus-pfp.png',['#59c6d2','#c2fbff']],['Kad','kad-pfp.png',['#d28f62','#ffe0c4']],['Skadi','skadi-pfp.png',['#91b6e9','#e1efff']],['Saber','saber-pfp.png',['#82d1cb','#d1fff7']],['Bugs bunny','bugs-bunny-pfp.png',['#c4c9d8','#f4f5ff']],['Aprillis','aprillis-pfp.gif',['#df9bd1','#ffe2f7']],['Stormtempest','stormtempest-pfp.png',['#7189d8','#c4d0ff']],['Gun','gun-pfp.png',['#9c9da9','#e5e5ef']],['Coffee','coffee-pfp.png',['#b4866a','#f2d0b5']],['Nams','nams-pfp.png',['#6fb8a5','#c5f0df']],['Shinji','loki-pfp.png',['#7295d8','#d4e1ff']]
 ].map(([name,file,palette],index) => ({name,file,palette,index}));
 const $ = selector => document.querySelector(selector);
 const lock = $('#site-lock');
