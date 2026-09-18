@@ -124,7 +124,7 @@ const rubySurprises = [
   ['Cheese', 'cheese-ruby-wish.png'], ['Aprill', 'aprill-ruby-wish.png'], ['Gun', 'gun-ruby-wish.png'],
   ['Kad', 'kad-ruby-wish.png'], ['King', 'king-ruby-wish.png'], ['Kuro', 'kuro-ruby-wish.png'],
   ['StormTempest', 'stormtempest-ruby-wish.png'], ['Saber', 'saber-ruby-wish.png'], ['Nams', 'nams-ruby-wish.png'],
-  ['Minze', 'minze-ruby-wish.png']
+  ['Minze', 'minze-ruby-wish.png'], ['Ruby', 'ruby-ruby-wish.png']
 ].map(([from, image]) => ({from, image, type:'card'})).concat([
   ['Coffee', ['coffee-wish-1.png', 'coffee-wish-2.png', 'coffee-wish-3.png']],
   ['Kurumii', ['kurumii-wish-1.png', 'kurumii-wish-2.png']],
