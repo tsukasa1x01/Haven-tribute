@@ -1,4 +1,4 @@
-const RELEASE_AT = Date.parse('2026-09-17T17:00:00Z');
+const RELEASE_AT = Date.parse('2026-09-18T11:02:00Z');
 const chapters = ['THE SIGNAL','THE REVEAL','THE CELEBRATION',"RUBY'S SURPRISES",'THE SUBJECT','THE OCEAN INCIDENT','ONE WITH THE OCEAN','SECRET CREDITS'];
 const chapterNumerals = ['I','II','III','IV','V','VI','VII','VIII'];
 const archiveRecords = [
@@ -128,7 +128,8 @@ const rubySurprises = [
 ].map(([from, image]) => ({from, image, type:'card'})).concat([
   ['Coffee', ['coffee-wish-1.png', 'coffee-wish-2.png', 'coffee-wish-3.png']],
   ['Kurumii', ['kurumii-wish-1.png', 'kurumii-wish-2.png']],
-  ['Revy', ['revy-wish-1.png', 'revy-wish-2.png']]
+  ['Revy', ['revy-wish-1.png', 'revy-wish-2.png']],
+  ['Izumi', ['izumi-wish-1.png', 'izumi-wish-2.png']]
 ].map(([from, images]) => ({from, images, type:'multi'})));
 const wellWishers = [
   ['Izumi','izumi-pfp.png',['#6da9ff','#b5d8ff']],['Ruby','ruby-pfp.png',['#ff7897','#ffd0d8']],['Mint','mint-pfp.png',['#75d7bc','#d0fff0']],['Shin','shin-pfp.gif',['#8e86ff','#d2cfff']],['Kuro catto nya','kuro-catto-nyaa-pfp.png',['#7f91ad','#dbe7f5']],['cheese catto nyaa','cheese-catto-nyaa-pfp.png',['#f1c55e','#fff0b0']],['Revy','revy-pfp.png',['#d46f73','#ffc2ae']],['Kurumii','kurumii-pfp.png',['#a77aff','#e2cfff']],['Nexus','nexus-pfp.png',['#59c6d2','#c2fbff']],['Kad','kad-pfp.png',['#d28f62','#ffe0c4']],['Skadi','skadi-pfp.png',['#91b6e9','#e1efff']],['Saber','saber-pfp.png',['#82d1cb','#d1fff7']],['Bugs bunny','bugs-bunny-pfp.png',['#c4c9d8','#f4f5ff']],['Aprillis','aprillis-pfp.gif',['#df9bd1','#ffe2f7']],['Stormtempest','stormtempest-pfp.png',['#7189d8','#c4d0ff']],['Gun','gun-pfp.png',['#9c9da9','#e5e5ef']],['Coffee','coffee-pfp.png',['#b4866a','#f2d0b5']],['Nams','nams-pfp.png',['#6fb8a5','#c5f0df']],['Shinji','loki-pfp.png',['#7295d8','#d4e1ff']]
@@ -174,7 +175,7 @@ let oceanAtmosphereTimers = [];
 let subjectAnalysisTimers = [];
 let oceanInvestigationTimers = [];
 
-function renderLockChapters(){ $('#lock-chapters').innerHTML = chapters.map((chapter,index)=>`<div>${chapterNumerals[index]} ${chapter} <span>🔒</span></div>`).join(''); }
+function renderLockChapters(){ $('#lock-chapters').innerHTML = chapters.slice(0,7).map((chapter,index)=>`<div>${chapterNumerals[index]} ${chapter} <span>🔒</span></div>`).join(''); }
 function updateCountdown(){
   const remaining = Math.max(0, RELEASE_AT - Date.now());
   const days = Math.floor(remaining / 86400000); const hours = Math.floor(remaining % 86400000 / 3600000); const minutes = Math.floor(remaining % 3600000 / 60000); const seconds = Math.floor(remaining % 60000 / 1000);
