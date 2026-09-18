@@ -1,4 +1,4 @@
-const RELEASE_AT = Date.parse('2026-09-18T11:02:00Z');
+const RELEASE_AT = Date.parse('2026-09-18T13:02:00Z');
 const chapters = ['THE SIGNAL','THE REVEAL','THE CELEBRATION',"RUBY'S SURPRISES",'THE SUBJECT','THE OCEAN INCIDENT','ONE WITH THE OCEAN','SECRET CREDITS'];
 const chapterNumerals = ['I','II','III','IV','V','VI','VII','VIII'];
 const archiveRecords = [
